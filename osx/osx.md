@@ -3,7 +3,7 @@
 ## System Settings
 
 - General
-	+ Apperance: graphite
+	+ Appearance: graphite
 	+ Tick: Use dark menu and dock
 	+ Highlight color: Graphite
 	+ Sidebar icon size: small
@@ -11,7 +11,7 @@
 	+ Tick: Ask to keep changes when closing docs
 	+ Untick: Close windows when quitting
 	+ Recent items: None
-	+ Untick: Allow handoff
+	+ Untick: Allow hand-off
 - Screen Saver:
 	Start after: Never
 - Mission Control
@@ -33,16 +33,16 @@
 		* Untick: Put hard disk to sleep
 - Keyboard
 	+ Keyboard
-		* Enable key repeat instead of popup: 
+		* Enable key repeat instead of pop-up: 
 		  `defaults write -g ApplePressAndHoldEnabled -bool false`
-		* Set key repeat and delay to short (is overriden by karabiner anyway)
+		* Set key repeat and delay to short (is overridden by Karabiner anyway)
 		* Untick: adjust keyboard brightness in low light
 	+ Text
 		* Untick: Correct Spelling automatically
 		* Remove preinstalled snippets
 		* Unitck: Use smart quotes
 	+ Shortcuts
-		* Mission Control: Assign Ctrl+i to switch to ith desktop
+		* Mission Control: Assign Ctrl+i to switch to i'th desktop
 		* Change keyboard->Move focus to next window to <Cmd+^>
 		* Untick all in Accessibility
 		* App shortcuts: Add Finder: Back -> Cmd+ö, Forward -> Cmd+ä
@@ -61,9 +61,9 @@
 		* Tick: Show volume in menu bar 
 - iCloud
 	+ Untick all but iCloid Drive and Find my Mac
-	+ In iCloudDrive subsettings untick all
+	+ In iCloudDrive sub-settings untick all
 - Internet accounts
-	+ Add google Account for calendar and contacts
+	+ Add Google Account for calendar and contacts
 - Extensions
 	- Share Menu: Untick all
 - Bluetooth: Turn off when not needed
@@ -73,7 +73,7 @@
 	+ Clock: Tick show date under Date options
 - Accessibility
 	+ Display: Tick reduce transparency
-	+ Mouse&Trackpad: 
+	+ Mouse & Trackpad: 
 		* Trackpad Options: Set scroll speed to third fastest
 		* Tick enable dragging and choose three finger drag
 
@@ -84,14 +84,14 @@
 - Set size to maximum
 - Turn off magnification
 - Animation: Scale
-- Untick: Animate openinge applications
-- Tick: Automatically hid and show the dock
+- Untick: Animate opening applications
+- Tick: Automatically hide and show the dock
 
 ### Finder
 
 - General
 	+ Show these items on desktop: External disks
-	+ New Finder windo shows: Downloads
+	+ New Finder windows shows: Downloads
 	+ Untick: Open folder in new tab
 - Sidebar
 	+ Only tick: iCloudDrive, Downloads, tmenne, hard disks, external disks
@@ -121,14 +121,14 @@
 
 ### Dropbox
 
-- Set path to available folder (if available, otherwise redownload)
+- Set path to available folder (if available, otherwise re-download)
 	+ MacBook: /Volumes/nifty
 	+ MacMini: ~/
 - Untick: Enable Camera Upload and Share Screenshots
 
 ### Google Drive
 
-- Set path to available folder (if available, otherwise redownload)
+- Set path to available folder (if available, otherwise re-download)
 	+ MacBook: /Volumes/nifty
 	+ MacMini: ~/
 
