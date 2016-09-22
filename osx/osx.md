@@ -45,7 +45,8 @@
 		* Mission Control: Assign Ctrl+i to switch to ith desktop
 		* Change keyboard->Move focus to next window to <Cmd+^>
 		* Untick all in Accessibility
-		* At the bottom: Tcik All controls
+		* App shortcuts: Add Finder: Back -> Cmd+ö, Forward -> Cmd+ä
+		* At the bottom: Tick All controls
 - Trackpad
 	+ Point&Click
 		* Tick: Tap to click
@@ -55,6 +56,7 @@
 		* Tick App Expose and set to four finger swipe down
 - Sound
 	+ Sound effects
+		* Slide alert volume to mute
 		* Untick: Play user interface sound effects
 		* Tick: Show volume in menu bar 
 - iCloud
