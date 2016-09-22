@@ -1,0 +1,65 @@
+## Taps
+# Binaries
+tap 'caskroom/cask'
+tap 'caskroom/versions'
+# Fonts
+tap 'caskroom/fonts'
+tap 'homebrew/dupes'   # Up-to-date versions of OSX tools
+
+
+## Make sure cask installs apps in '/Applications'
+cask_args appdir: '/Applications'
+
+
+## Basics
+brew 'coreutils'        # GNU up-to-date coreutils
+brew 'findutils'        # GNU 'find', 'locate', etc
+brew 'bash'             # Newest bash version
+brew 'bash-completion'  
+
+
+## CLI binaries
+brew 'git'
+brew 'mackup'
+brew 'trash'
+brew 'wget'
+brew 'stow'
+
+
+## Apps
+cask 'anaconda'
+cask 'bettertouchtool'
+cask 'dropbox'
+cask 'dterm'
+cask 'flux'
+cask 'google-chrome'
+cask 'google-drive'
+cask 'java'
+cask 'jdownloader'
+cask 'karabiner'
+cask 'mactex'
+cask 'plex-media-server'
+cask 'skype'
+cask 'slack'
+cask 'sublime-text'
+cask 'telegram'
+cask 'vlc' 
+cask 'wkhtmltopdf'
+
+# Quicklook plugins
+cask 'qlcolorcode'
+cask 'qlstephen'
+cask 'qlmarkdown'
+cask 'quicklook-json'
+cask 'quicklook-csv'
+cask 'betterzipql'
+cask 'qlimagesize'
+
+
+## Fonts
+cask 'font-hack'
+cask 'font-source-code-pro'
+cask 'font-source-sans-pro'
+cask 'font-source-serif-pro'
+
+
