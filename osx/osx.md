@@ -98,7 +98,7 @@
 - Advanced
 	+ Show all filename extensions
 	+ Search current folder
-- In folder: Right Click and View Options
+- In folder: Set to list view, sort by kind. Then right click and View Options
 	+ Text size 11
 	+ Show columns Size and Kind
 	+ Untick: Show icon preview
