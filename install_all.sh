@@ -33,6 +33,17 @@ brew bundle --file=./homebrew/Brewfile
 brew cask cleanup
 
 
+## Link to Google Drive and Dropbox in home if on MacBookPro
+if [ ! -d "${HOME}/Dropbox" ]; then
+	echo "No Dropbox folder found in home. Linking /Volumes/nifty/Dropbox."
+	ln -s /Volumes/nifty/Dropbox ${HOME}
+fi
+if [ ! -d "${HOME}/Google Drive" ]; then
+	echo "No Google Drive folder found in home. Linking /Volumes/nifty/Google\ Drive."
+	ln -s /Volumes/nifty/Google\ Drive ${HOME}
+fi
+
+
 ## Link dotfiles and configs to $(HOME) using GNU `stow`
 # Unstow with `stow --dir=dotfiles --target=${HOME} -vv -D package-name`
 for d in `ls ./dotfiles`; do
