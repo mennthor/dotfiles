@@ -24,6 +24,10 @@ Also `dropbox`, `google drive`, `chrome` `telegram` and `slack` need a first tim
 For the cloud drives, the cloud folder location must be set at first startup of the app.
 If the folder was backed up or was put on an external memory, nothing needs to be redownloaded.
 
+Unfortunately there a whole lot of OSX settings I didn't found a way to configure via command line.
+My basic settings I do when setting up a new system are described in `osx/osx.md`.
+Maybe there is a way to set all these per command line in one script. :) 
+
 ## Apps to install manually
 
 - CSL USB Ethernet Driver
