@@ -13,9 +13,8 @@ chmod 744 main.sh
 ./main.sh
 ```
 
-This will install `xcode command line tools`, `homebrew` and all `brew` programs selected in `homebrew/Brewfile`.
-Then OSX system settings specified in `osx/osx.sh` are applied.
-Lastly app settings are restored using `mackup restore`. Those settings are stored in the iCloud drive
+This will currently install `xcode command line tools`, `homebrew` and all `brew` programs selected in `homebrew/Brewfile`.
+Then app settings are restored using `mackup restore`. Those settings are stored in the iCloud drive, mostly in plist files.
 
 ## Manual Steps
 
