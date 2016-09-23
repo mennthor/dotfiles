@@ -1,0 +1,21 @@
+# Best goddamn inputrc in the whole world. MODIFIED
+# Author: Seth House <seth@eseth.com>
+# See http://linux.die.net/man/1/bash for all vi commands/variables
+
+# Adds punctuation as word delimiters
+set bind-tty-special-chars off
+
+# Completion Options
+set page-completions on
+set completion-ignore-case on
+set completion-query-items 200
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set visible-stats on
+
+# Useful stuff for UTF-8
+set meta-flag on
+set input-meta on
+set output-meta on
+set convert-meta off
+
