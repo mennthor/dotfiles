@@ -23,7 +23,9 @@ fi
 #### Environment variables
 # System Python with packages in /Users/tmenne/Library/Python/2.7 (pip --user)
     export PATH=${HOME}/Library/Python/2.7/bin:${PATH}
-    export PYTHONSTARTUP=${HOME}/.ipython/profile_default/startup/00-basic_imports.py
+    # export PYTHONSTARTUP=${HOME}/.ipython/profile_default/startup/00-basic_imports.py
+# Anaconda python 3. Switch path to prefer it over system python
+    export PATH=~/anaconda3/bin:${PATH}
 # Java
     export JAVA_HOME=$(/usr/libexec/java_home)
 # Ruby gem user install directory
