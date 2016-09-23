@@ -3,6 +3,11 @@
 " Pathogen package runtime installer
 execute pathogen#infect()
 filetype plugin indent on
+
+" jedi autocomplete
+let g:jedi#popup_on_dot = 0
+autocmd FileType python setlocal completeopt-=preview
+
 " Make Vim more useful
 set nocompatible
 " Set color scheme
@@ -26,11 +31,11 @@ let mapleader=","
 " Don't add empty newlines at the end of files
 set binary
 set noeol
-" Centralize backups, swapfiles and undo history
-set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
+" Centralize backups, swapfiles and undo history in temp folder
+set backupdir=/private/tmp
+set directory=/private/tmp
 if exists("&undodir")
-        set undodir=~/.vim/undo
+        set undodir=/private/tmp
 endif
 
 set viminfo+=! " make sure vim history works
