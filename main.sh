@@ -10,7 +10,7 @@ while True; do
     else
         echo "Please enter yes or no."
     fi
-done 
+done
 
 
 ## Install `xcode commmand line tools`
@@ -25,12 +25,25 @@ fi
 # Update `homebrew`
 brew update
 
-# Install all our brew dependencies with `brew bundle` (see ./homebrew/Brewfile) 
+# Install all brew dependencies with `brew bundle` (see ./homebrew/Brewfile)
 brew tap homebrew/bundle
 brew bundle --file=./homebrew/Brewfile
 
 # Free disk space from downloaded binaries
 brew cask cleanup
+
+
+## Setup the system python
+# First install pip in the user folder ${HOME}/Library/Pythom/2.7
+wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py --user
+rm get-pip.py
+
+# Tell python to prefer user packages (check later with `$ python -m site`)
+echo "import sys; sys.path.insert(1,'${HOME}/Library/Python/2.7/lib/python/site-packages')" >> ${HOME}/Library/Python/2.7/lib/python/site-packages/local.pth
+
+# Install all in pip_requirements file to user folder (similar to Brewfile)
+pip install --upgrade --user -r "./osx/pip_requirements.txt"
 
 
 ## Link to Google Drive and Dropbox in home if on MacBookPro
@@ -64,9 +77,8 @@ tlmgr update --self --all --reinstall-forcibly-removed
 conda update anaconda
 
 
-
 ## Restore app settings using `mackup restore`.
-# mackup restore
+mackup restore
 
 
 ## Set OS X preferences
