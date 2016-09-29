@@ -21,11 +21,22 @@ fi
 
 ##############################################################################
 #### Environment variables
-# System Python with packages in /Users/tmenne/Library/Python/2.7 (pip --user)
+# Tell OSX Python where user packages are
     export PATH=${HOME}/Library/Python/2.7/bin:${PATH}
     # export PYTHONSTARTUP=${HOME}/.ipython/profile_default/startup/00-basic_imports.py
-# Anaconda python 3. Switch path to prefer it over system python
-    export PATH=~/anaconda3/bin:${PATH}
+# Anaconda python 3. Only enable on demand
+    function activate_py3 {
+        export OLD_PATH=$PATH
+        export PATH=${HOME}/anaconda3/bin:${PATH}
+
+        function deactivate {
+            if [ ! -z "$OLD_PATH" ]; then
+                export PATH=$OLD_PATH
+                unset OLD_PATH
+                unset -f deactivate
+            fi
+            }
+        }
 # Java
     export JAVA_HOME=$(/usr/libexec/java_home)
 # Ruby gem user install directory
