@@ -24,13 +24,13 @@ brew 'bash-completion'
 brew 'git'
 brew 'hdf5'
 brew 'mackup'
+brew 'python3'
 brew 'trash'
 brew 'wget'
 brew 'stow'
 
 
 ## Apps
-cask 'anaconda'
 cask 'bettertouchtool'
 cask 'dropbox'
 cask 'dterm'
