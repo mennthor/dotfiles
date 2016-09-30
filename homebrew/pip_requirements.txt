@@ -1,0 +1,13 @@
+astropy
+healpy
+ipykernel
+ipython
+jupyter
+matplotlib
+numpy
+pandas
+scipy
+setuptools
+tables
+tqdm
+uncertainties
