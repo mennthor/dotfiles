@@ -15,7 +15,8 @@ fi
 
 ##############################################################################
 #### Environment variables
-# Tell OSX Python where user packages are
+# Make user packages from OSX and homebrew Python available
+    export PATH=${HOME}/Library/Python/3.5/bin:${PATH}
     export PATH=${HOME}/Library/Python/2.7/bin:${PATH}
     # export PYTHONSTARTUP=${HOME}/.ipython/profile_default/startup/00-basic_imports.py
 # Anaconda python 3. Only enable on demand
