@@ -25,10 +25,12 @@ jupyter-contrib-nbextension install --user
 # https://github.com/ipython-contrib/jupyter_contrib_nbextensions
 
 # Enable extensions in notebook section
+jupyter-nbextension enable comment-uncomment/main  enabled
 jupyter-nbextension enable collapsible_headings/main
-jupyter-nbextension enable hide_input_all/main
-jupyter-nbextension enable ruler/main
-jupyter-nbextension enable codefolding/main
 jupyter-nbextension enable init_cell/main
+jupyter-nbextension enable codefolding/main
+jupyter-nbextension enable nbextensions_configurator/tree_tab/main
+jupyter-nbextension enable ruler/main
+jupyter-nbextension enable hide_input_all/main
 # Enable extensions in tree section
 jupyter-nbextension enable nbextensions_configurator/tree_tab/main
