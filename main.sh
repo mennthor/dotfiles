@@ -31,8 +31,9 @@ echo "  Install brews via brew bundle from Brewfile ..."
 brew tap homebrew/bundle
 brew bundle --file=./homebrew/Brewfile
 
-echo "  Cleaning up brew binaries to free disk space ..."
+echo "  Cleaning up brew binaries and cache to free disk space ..."
 brew cask cleanup
+rm -rf $(brew --cache)
 
 
 echo "-----------------------------------------------------------------------"
@@ -63,8 +64,8 @@ chmod 744 ./osx/python.sh
 
 echo "-----------------------------------------------------------------------"
 echo ":: Setting up homebrews python3 ::"
-chmod 744 ./python/python3.sh
-./python/python3.sh
+chmod 744 ./homebrew/python3.sh
+./homebrew/python3.sh
 
 
 echo "-----------------------------------------------------------------------"
@@ -73,11 +74,11 @@ echo "  Use new /etc/paths.d/TeX paths without starting a new terminal ..."
 eval `/usr/libexec/path_helper -s`
 
 echo "  Set some MacTe X settings ..."
-tlmgr option autobackup -- -1
-tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet
+sudo tlmgr option autobackup -- -1
+sudo tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet
 
 echo "  Update MacTeX ..."
-tlmgr update --self --all --reinstall-forcibly-removed
+sudo tlmgr update --self --all --reinstall-forcibly-removed
 
 
 echo "-----------------------------------------------------------------------"
