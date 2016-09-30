@@ -14,19 +14,23 @@ chmod 744 main.sh
 ```
 
 This will currently install
+
 - `xcode command line tools`
 - `homebrew`
     + all `brew` programs selected in `homebrew/Brewfile`
-    + This includes MacTex, anaconda, java and GUI apps
 - Setup the system python
     + Install `pip` to the user folder
     + Set a `.pth` file to prefer user packages
-    + Update system packages specified in 'pip_requirements.txt'
+    + Update system packages specified in 'homebrew/pip_requirements.txt'
+    + Install the ipykernel and notebook-extensions
+- Setup the homebrew python3
+    + Install packages specified in 'homebrew/pip_requirements.txt'
+    + Install ipykernel3 for python2 notebook
 - Link Google Drive and Dropbox folder to home if not exisitng yet
 - Stow all dotfiles from 'dotfiles/' to home folder
+- Update and setup MacTex
 - Restore app settings using `mackup restore`
     + Those settings are stored in an iCloud drive, previously created using `mackup backup`
-- Update anaconda3 and MacTex
 
 ## Manual Steps
 
