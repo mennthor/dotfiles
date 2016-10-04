@@ -18,6 +18,7 @@ brew 'coreutils'        # GNU up-to-date coreutils
 brew 'findutils'        # GNU 'find', 'locate', etc
 brew 'bash'             # Newest bash version
 brew 'bash-completion'
+brew 'homebrew/completions/brew-cask-completion'
 
 
 ## CLI binaries
