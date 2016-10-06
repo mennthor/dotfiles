@@ -1,6 +1,6 @@
 ## Script to setup, update and upgrade the OSX system python
 ## without polluting the system install location.
-
+# User folder is ~/Library/Python/2.7
 
 echo "  Install pip in the user folder ~/Library/Python/2.7 ..."
 wget https://bootstrap.pypa.io/get-pip.py
