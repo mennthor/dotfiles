@@ -4,10 +4,10 @@ ipykernel
 ipython
 jupyter
 matplotlib
+nbstripout
 numpy
 pandas
 scipy
 setuptools
 tables
 tqdm
-uncertainties
