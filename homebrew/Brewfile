@@ -2,6 +2,7 @@
 # Binaries
 tap 'caskroom/cask'
 tap 'caskroom/versions'
+tap 'neovim/neovim'
 # Completion scripts
 tap 'homebrew/completions'
 # Fonts
@@ -29,6 +30,7 @@ brew 'pip-completion'
 brew 'git'
 brew 'hdf5'
 brew 'mackup'
+brew 'neovim'
 brew 'python3'
 brew 'trash'
 brew 'wget'
