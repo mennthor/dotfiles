@@ -2,6 +2,8 @@
 # Binaries
 tap 'caskroom/cask'
 tap 'caskroom/versions'
+# Completion scripts
+tap 'homebrew/completions'
 # Fonts
 tap 'caskroom/fonts'
 tap 'homebrew/dupes'   # Up-to-date versions of OSX tools
@@ -18,7 +20,9 @@ brew 'coreutils'        # GNU up-to-date coreutils
 brew 'findutils'        # GNU 'find', 'locate', etc
 brew 'bash'             # Newest bash version
 brew 'bash-completion'
-brew 'homebrew/completions/brew-cask-completion'
+brew 'brew-cask-completion'
+brew 'open-completion'
+brew 'pip-completion'
 
 
 ## CLI binaries
