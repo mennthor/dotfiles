@@ -15,31 +15,48 @@ fi
 
 ##############################################################################
 #### Environment variables
-# Make user packages from OSX and homebrew Python available
-    export PATH=${HOME}/Library/Python/3.5/bin:${PATH}
+# System Python with packages in ~/Library/Python/2.7: preferred Python path
     export PATH=${HOME}/Library/Python/2.7/bin:${PATH}
-    # export PYTHONSTARTUP=${HOME}/.ipython/profile_default/startup/00-basic_imports.py
-# Anaconda python 3. Only enable on demand
-    function activate_py3 {
-        export OLD_PATH=$PATH
-        export PATH=${HOME}/anaconda3/bin:${PATH}
 
+# Homebrew Python 3: Activate on demand (virtualenv style)
+    function activate_python3 {
+        # Function to deactivate
         function deactivate {
-            if [ ! -z "$OLD_PATH" ]; then
-                export PATH=$OLD_PATH
-                unset OLD_PATH
+            # Restore original state
+            if [ ! -z "$_OLD_PATH" ]; then
+                export PATH=${_OLD_PATH}
+                export PS1=${_OLD_PS1}
+                unset _OLD_PATH
+                unset _OLD_PS1
+                unalias notebook3
+                # Also remove this function from the scope
                 unset -f deactivate
             fi
             }
-        }
+        # If we are already running an active py3 environment
+        deactivate
+        # Save old env vars
+        _OLD_PATH=${PATH}
+        _OLD_PS1=${PS1}
+        # Set new path on top of all
+        export PATH=${HOME}/Library/Python/3.5/bin:${PATH}
+        # Indicate that we are in a python3 environment
+        export PS1="(BrewPy3) $PS1"
+        # Set notebook3 alias
+        alias notebook3="jupyter3-notebook"
+    }
+
 # Java
     export JAVA_HOME=$(/usr/libexec/java_home)
+
 # Ruby gem user install directory
     # export PATH=$PATH:${HOME}/.gem/ruby/2.0.0/bin
+
 # ROOT, TRUEE
     # export ROOTSYS=${HOME}/bin/root/5.34.34/build
     # source $ROOTSYS/bin/thisroot.sh
     # export PATH=${PATH}:${HOME}/bin/TRUEE/4.0/build/bin
+
 # IceCube
     # Create some useful paths
     # export ICPATH=${HOME}/icecube
@@ -58,7 +75,6 @@ fi
 alias ls="ls -GFAh"
 alias cpp="pwd | pbcopy"
 alias notebook="jupyter-notebook"
-alias notebook3="jupyter3-notebook"
 alias bing="${HOME}/Google\ Drive/osx/scripts/Bing_Wallpapers/bing_wallpaper.sh"
 alias daily="bing && brew update && brew upgrade"
 
