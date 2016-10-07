@@ -15,6 +15,8 @@ for j in ./jupyter*; do
 done
 
 echo "  Make `python` link in py3 user folder for make scripts using `python`."
-# When py3 is the first path object, then python points to py3
+# When python3 is the first python in the PATH, then `python`/`pip` should
+# consistenly point to `python3`/`pip` per default. This is set for py2 as well.
 ln -s /usr/local/bin/python3 ./python
+ln -s /usr/local/bin/pip3 ./pip
 cd -
