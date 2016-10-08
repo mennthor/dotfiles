@@ -6,6 +6,7 @@ export LC_ALL="en_US.UTF-8"
 export PS1="\u:\[\e[34m\]\W\[\e[0m\]\$ "
 # Editor
 export EDITOR="vim"
+export PAGER="vimpager"
 
 # Bash completion from homebrew
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -73,6 +74,7 @@ fi
 ##############################################################################
 #### Alias
 alias ls="ls -GFAh"
+alias vp="vimpager"
 alias cpp="pwd | pbcopy"
 alias notebook="jupyter-notebook"
 alias bing="${HOME}/Google\ Drive/osx/scripts/Bing_Wallpapers/bing_wallpaper.sh"
