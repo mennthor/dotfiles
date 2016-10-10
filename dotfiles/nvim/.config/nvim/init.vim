@@ -36,6 +36,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgray ctermbg=DarkG
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Visual Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colorscheme
+colorscheme smyck
+
 " Color every column gretaer than 80
 highlight ColorColumn ctermbg=DarkGrey
 let &colorcolumn=join(range(81,999),",")
