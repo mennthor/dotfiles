@@ -1,7 +1,7 @@
 # README
 
 This dotfiles repo takes a whole lot from [Dries Vints Dotfile Tutorial](https://driesvints.com/blog/getting-started-with-dotfiles).
-His dotfiles are available at [github](https://github.com/driesvints/dotfiles/blob/master/install.sh).
+His dotfiles can be found https://github.com/driesvints/dotfiles.
 
 Lots of OSX specific system configuration commands are in [Mathias Bynens Dotfiles](https://github.com/mathiasbynens/dotfiles).
 

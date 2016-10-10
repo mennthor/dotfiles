@@ -35,6 +35,7 @@ brew 'python3'
 brew 'trash'
 brew 'wget'
 brew 'stow'
+brew 'vimpager'
 
 
 ## Apps
