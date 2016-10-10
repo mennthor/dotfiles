@@ -58,8 +58,10 @@ done  # Unstow with -vD option
 echo "-----------------------------------------------------------------------"
 echo ":: Setting up neovim ::"
 stow --dir=dotfiles --target=${HOME} -vD nvim  # Unstow to prevent symlinking the whole plugged folder
-curl -fLo ${HOME}/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ${HOME}/.config/nvim/autoload/plug.vim --create-dirs \  # Install vim plug
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.config/nvim/colors/smyck.vim --create-dirs \  # Install smyck color theme
+	https://raw.githubusercontent.com/hukl/Smyck-Color-Scheme/master/smyck.vim
 stow --dir=dotfiles --target=${HOME} -v nvim  # Restow to install plugs from init.vim
 nvim -c PlugInstall -c qall
 
