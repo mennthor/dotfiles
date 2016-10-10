@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Thorben Menne
-	email = mennthor@aol.com
+	email = thorben.menne@tu-dortmund.de
 
 [color]
 	ui = true
