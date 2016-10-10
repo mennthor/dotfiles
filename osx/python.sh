@@ -34,3 +34,6 @@ jupyter-nbextension enable ruler/main
 jupyter-nbextension enable hide_input_all/main
 # Enable extensions in tree section
 jupyter-nbextension enable nbextensions_configurator/tree_tab/main
+
+echo "  Make `python` link in py2 user folder to encapsulate the system python."
+ln -s /usr/bin/python ${HOME}/Library/Python/2.7/bin/python
