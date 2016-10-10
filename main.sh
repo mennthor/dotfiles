@@ -56,6 +56,15 @@ done  # Unstow with -vD option
 
 
 echo "-----------------------------------------------------------------------"
+echo ":: Setting up neovim ::"
+stow --dir=dotfiles --target=${HOME} -vD nvim  # Unstow to prevent symlinking the whole plugged folder
+curl -fLo ${HOME}/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+stow --dir=dotfiles --target=${HOME} -v nvim  # Restow to install plugs from init.vim
+nvim -c PlugInstall -c qall
+
+
+echo "-----------------------------------------------------------------------"
 echo ":: Setting up OSX python ::"
 chmod 744 ./osx/python.sh
 ./osx/python.sh
