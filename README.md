@@ -28,6 +28,7 @@ This will currently install
     + Install ipykernel3 for python2 notebook
 - Link Google Drive and Dropbox folder to home if not exisitng yet
 - Stow all dotfiles from 'dotfiles/' to home folder
+- Setup neovim
 - Update and setup MacTex
 - Restore app settings using `mackup restore`
     + Those settings are stored in an iCloud drive, previously created using `mackup backup`
