@@ -2,7 +2,7 @@
 	name = Thorben Menne
 	email = thorben.menne@tu-dortmund.de
 
-
+# Thanks to http://toolbox.pep-dortmund.org
 [pull]
 	rebase = true
 
@@ -47,5 +47,5 @@
 	b = branch
 	ba = branch -a
 	co = checkout
-	# ibab/dotfiles
-	lg = log --pretty=oneline --abbrev-commit --decorate
+	# Thanks to ibab/dotfiles/.../.gitignore
+	lg = log --pretty=oneline --abbrev-commit --graph --decorate
