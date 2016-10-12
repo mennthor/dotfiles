@@ -5,8 +5,7 @@ export LC_ALL="en_US.UTF-8"
 # CLI Prefix: User:Path(blue)$
 export PS1="\u:\[\e[34m\]\W\[\e[0m\]\$ "
 # Editor
-export EDITOR="vim"
-export PAGER="vimpager"
+export EDITOR="nvim"
 
 # Bash completion from homebrew
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -80,10 +79,6 @@ alias notebook="jupyter-notebook"
 alias bing="${HOME}/Google\ Drive/osx/scripts/Bing_Wallpapers/bing_wallpaper.sh"
 alias daily="bing && brew update && brew upgrade"
 
-# git
-alias gits="git status"
-alias gita="git add"
-alias gitc="git commit"
 # From https://coderwall.com/p/grmruq/git-status-on-all-repos-in-folder
 alias gitsall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
 alias gitpall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git pull && echo)' \;"
