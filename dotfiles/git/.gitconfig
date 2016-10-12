@@ -1,13 +1,7 @@
-# This is Git's per-user configuration file.
 [user]
 	name = Thorben Menne
 	email = thorben.menne@tu-dortmund.de
 
-[color]
-	ui = true
-
-[format]
-	pretty  = fuller
 
 [pull]
 	rebase = true
@@ -17,3 +11,41 @@
 
 [merge]
 	conflictstyle = diff3
+
+[log]
+	decorate=auto
+
+
+[format]
+	pretty  = fuller
+
+
+[color]
+	ui = auto
+
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = red
+
+[color "branch"]
+	current = green reverse
+	local = green
+	remote = yellow
+
+[color "diff"]
+	meta = yellow
+	frag = blue
+	old = red
+	new = green
+
+
+[alias]
+	s = status
+	c = commit
+	cm = commit -m
+	b = branch
+	ba = branch -a
+	co = checkout
+	# ibab/dotfiles
+	lg = log --pretty=oneline --abbrev-commit --decorate
