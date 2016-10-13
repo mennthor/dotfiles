@@ -3,10 +3,13 @@ healpy
 ipykernel
 ipython
 jupyter
+jupyter-contrib-nbextensions
+jupyter_nbextensions_configurator
 matplotlib
 nbstripout
 numpy
 pandas
+rise
 scipy
 setuptools
 tables
