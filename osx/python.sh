@@ -19,21 +19,24 @@ python -m pip install ipykernel --user
 python -m ipykernel install --user --display-name "Python 2 (OSX)"
 # http://ipython.readthedocs.io/en/stable/install/kernel_install.html
 
-echo "  Install notebook extensions ..."
-pip install --user https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
+echo "  Setup notebook extensions ..."
 jupyter-contrib-nbextension install --user
-# https://github.com/ipython-contrib/jupyter_contrib_nbextensions
 
+# Enable extensions in tree section
+jupyter-nbextensions_configurator enable --user
 # Enable extensions in notebook section
-jupyter-nbextension enable comment-uncomment/main  enabled
+jupyter-nbextension enable comment-uncomment/main
+# Put shortcut setting in json file
+sed -i.bak '1a\'$'\n''\ \ "codefolding_hotkey": "meta-shift-7",'$'\n' ${HOME}/.jupyter/nbconfig/notebook.json; rm ${HOME}/.jupyter/nbconfig/*.bak
 jupyter-nbextension enable collapsible_headings/main
 jupyter-nbextension enable init_cell/main
 jupyter-nbextension enable codefolding/main
-jupyter-nbextension enable nbextensions_configurator/tree_tab/main
 jupyter-nbextension enable ruler/main
 jupyter-nbextension enable hide_input_all/main
-# Enable extensions in tree section
-jupyter-nbextension enable nbextensions_configurator/tree_tab/main
+
+# Enable and setup RISE live slide extension
+jupyter-nbextension install rise --py --user
+jupyter-nbextension enable rise --py --user
 
 echo "  Make `python` link in py2 user folder to encapsulate the system python."
 ln -s /usr/bin/python ${HOME}/Library/Python/2.7/bin/python
