@@ -13,6 +13,10 @@ Plug 'tpope/vim-commentary'
 Plug 'itchyny/lightline.vim'
 " Show indentation when indented with spaces
 Plug 'Yggdroot/indentLine'
+" Colorschemes
+Plug 'mennthor/Smyck-Color-Scheme'
+Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/vim-tomorrow-theme'
 call plug#end()
 
 
@@ -39,6 +43,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgray ctermbg=DarkG
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorscheme
 colorscheme smyck
+
+" 256 colors frooo solarized
+let g:solarized_termcolors=256
 
 " Color every column gretaer than 80
 highlight ColorColumn ctermbg=DarkGrey
