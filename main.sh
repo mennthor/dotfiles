@@ -100,6 +100,11 @@ echo ":: Restore app settings using mackup restore ::"
 mackup restore
 
 
+echo "-----------------------------------------------------------------------"
+echo ":: Install new dictionaries for Sublime Text 3"
+git clone https://github.com/titoBouzout/Dictionaries.git ${HOME}/Library/Application\ Support/Sublime\ Text\ 3/Packages/Dictionaries/
+
+
 ## Set OS X preferences
 # We will run this last because this will reload the shell
 # source ./osx/osx.sh
