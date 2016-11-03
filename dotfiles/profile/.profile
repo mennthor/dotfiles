@@ -53,11 +53,13 @@ fi
     # export PATH=$PATH:${HOME}/.gem/ruby/2.0.0/bin
 
 # ROOT, TRUEE
-    export ROOTSYS=/Users/tmenne/bin/root6/v6.06.08/build
-    source $ROOTSYS/bin/thisroot.sh
-    # export ROOTSYS=${HOME}/bin/root/5.34.34/build
-    # source $ROOTSYS/bin/thisroot.sh
-    # export PATH=${PATH}:${HOME}/bin/TRUEE/4.0/build/bin
+    function useROOT6 {
+        export ROOTSYS=${HOME}/bin/root6/v6.06.08/build
+        source $ROOTSYS/bin/thisroot.sh
+        echo "~~ Activated ROOT6 environment ~~"
+        echo "     Version $(root-config --version) with Python $(root-config --python-version) in"
+        echo "       $(root-config --bindir)"
+    }
 
 # IceCube
     # Create some useful paths
