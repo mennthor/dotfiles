@@ -2,6 +2,9 @@
 	name = Thorben Menne
 	email = thorben.menne@tu-dortmund.de
 
+[core]
+	excludesfile = ~/.gitignore_global
+
 # Thanks to http://toolbox.pep-dortmund.org
 [pull]
 	rebase = true
