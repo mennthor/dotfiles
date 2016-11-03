@@ -44,11 +44,11 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgray ctermbg=DarkG
 " Colorscheme
 colorscheme smyck
 
-" 256 colors frooo solarized
+" 256 colors for solarized
 let g:solarized_termcolors=256
 
 " Color every column gretaer than 80
-highlight ColorColumn ctermbg=DarkGrey
+highlight ColorColumn ctermbg=Black
 let &colorcolumn=join(range(81,999),",")
 
 " Highlight current line
