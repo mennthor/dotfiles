@@ -53,6 +53,8 @@ fi
     # export PATH=$PATH:${HOME}/.gem/ruby/2.0.0/bin
 
 # ROOT, TRUEE
+    export ROOTSYS=/Users/tmenne/bin/root6/v6.06.08/build
+    source $ROOTSYS/bin/thisroot.sh
     # export ROOTSYS=${HOME}/bin/root/5.34.34/build
     # source $ROOTSYS/bin/thisroot.sh
     # export PATH=${PATH}:${HOME}/bin/TRUEE/4.0/build/bin
@@ -72,6 +74,9 @@ fi
 
 ##############################################################################
 #### Alias
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 alias ls="ls -GFAh"
 alias vp="vimpager"
 alias cpp="pwd | pbcopy"
