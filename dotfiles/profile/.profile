@@ -86,6 +86,11 @@ alias notebook="jupyter-notebook"
 alias bing="${HOME}/Google\ Drive/osx/scripts/Bing_Wallpapers/bing_wallpaper.sh"
 alias daily="bing && brew update && brew upgrade"
 
+# Make interactive ssh tunnel. $1 = host from .ssh/config, $2 = port
+function tunnel {
+    ssh -t -L $2:localhost:$2 $1
+}
+
 # From https://coderwall.com/p/grmruq/git-status-on-all-repos-in-folder
 alias gitsall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
 alias gitpall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git pull && echo)' \;"
