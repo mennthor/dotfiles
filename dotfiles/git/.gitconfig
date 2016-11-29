@@ -50,5 +50,7 @@
 	b = branch
 	ba = branch -a
 	co = checkout
+	df = diff --name-only HEAD^1 HEAD
+	dfc = diff HEAD^1 HEAD
 	# Thanks to ibab/dotfiles/.../.gitignore
 	lg = log --pretty=oneline --abbrev-commit --graph --decorate
