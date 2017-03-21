@@ -1,0 +1,7 @@
+{
+    // Set python paths
+    "python_interpreter" : "/usr/bin/python",
+    // "python_interpreter" : "/usr/local/bin/python3",
+    "anaconda_linting_behaviour": "always",
+    "anaconda_linter_mark_style": "stippled_underline"
+}

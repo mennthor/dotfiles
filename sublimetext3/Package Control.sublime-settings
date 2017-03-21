@@ -1,0 +1,17 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Anaconda",
+		"AutoFileName",
+		"GitGutter",
+		"Greek Letters",
+		"MarkdownEditing",
+		"Package Control",
+		"Python PEP8 Autoformat",
+		"Sublimerge 3"
+	]
+}

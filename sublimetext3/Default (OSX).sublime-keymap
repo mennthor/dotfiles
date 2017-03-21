@@ -1,0 +1,28 @@
+[
+    // Word wrap
+    { "keys": ["ctrl+shift+w"],
+        "command": "toggle_setting", "args": {"setting": "word_wrap"} },
+    // New view into file
+    { "keys": ["ctrl+shift+n"], "command": "clone_file" },
+    // Push lines up and down
+    { "keys": ["alt+shift+up"],
+        "command": "select_lines", "args": {"forward": false} },
+    { "keys": ["alt+shift+down"],
+        "command": "select_lines", "args": {"forward": true} },
+    // Show console
+    { "keys": ["shift+alt+c"],
+        "command": "show_panel", "args": {"panel": "console", "toggle": true} },
+    // Scroll up/down a line vim style
+    { "keys": ["ctrl+<"],
+        "command": "scroll_lines", "args": {"amount": -1.0} },
+    { "keys": ["ctrl+y"],
+        "command": "scroll_lines", "args": {"amount": 1.0} },
+    // Scroll up/down page vim style
+    { "keys": ["ctrl+b"],
+        "command": "move", "args": {"by": "pages", "forward": false} },
+    { "keys": ["ctrl+f"],
+        "command": "move", "args": {"by": "pages", "forward": true} },
+    // Fold/Unfold code
+    { "keys": ["super+shift+1"], "command": "fold" },
+    { "keys": ["super+shift+2"], "command": "unfold" }
+]
