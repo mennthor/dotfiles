@@ -56,6 +56,12 @@ done  # Unstow with -vD option
 
 
 echo "-----------------------------------------------------------------------"
+echo ":: Stowing sublime text 3 settings to packages folder ::"
+TARGET="${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
+mkdir -p "$TARGET"
+stow --target="$TARGET" -v sublimetext3
+
+echo "-----------------------------------------------------------------------"
 echo ":: Setting up neovim ::"
 echo "  Unstow nvim to prevent symlinking the whole plugged folder"
 stow --dir=dotfiles --target=${HOME} -vD nvim
