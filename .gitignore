@@ -1,3 +1,19 @@
 # OSX finder files
 **.DS_Store
 **._.DS_Store
+
+# Sublime Text 3 files
+sublimetext3/Package\ Control.last-run
+sublimetext3/Package\ Control.cache/
+sublimetext3/Package\ Control.ca-list
+sublimetext3/Package\ Control.ca-bundle
+sublimetext3/Package\ Control.ca-certs/
+sublimetext3/Package\ Control.system-ca-bundle
+sublimetext3/Package\ Control.merged-ca-bundle
+sublimetext3/Package\ Control.user-ca-bundle
+
+
+sublimetext3/oscrypto-ca-bundle.crt
+
+
+
