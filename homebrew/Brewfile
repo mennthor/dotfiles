@@ -1,15 +1,11 @@
 ## Taps
-# Binaries
-tap 'caskroom/cask'
+tap 'caskroom/cask'         # Apps
 tap 'caskroom/versions'
 tap 'neovim/neovim'
-# Completion scripts
-tap 'homebrew/completions'
-# Fonts
-tap 'caskroom/fonts'
-tap 'homebrew/dupes'   # Up-to-date versions of OSX tools
-# Stand back, I'll try science
-tap 'homebrew/science'
+tap 'homebrew/completions'  # Completion scripts
+tap 'caskroom/fonts'        # Fonts
+tap 'homebrew/dupes'        # Up-to-date versions of OSX tools
+tap 'homebrew/science'      # Stand back, I'll try science
 
 
 ## Make sure cask installs apps in '/Applications'
@@ -29,7 +25,6 @@ brew 'pip-completion'
 ## CLI binaries
 brew 'git'
 brew 'hdf5'
-brew 'mackup'
 brew 'neovim'
 brew 'pandoc'
 brew 'python3'
