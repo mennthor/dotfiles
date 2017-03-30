@@ -79,14 +79,14 @@ nnoremap º ddp
 nnoremap ™ yyp
 
 " Disable arrow keys
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Right> <NOP>
-inoremap <Left> <NOP>
-nnoremap <Up> <NOP>
-nnoremap <Down> <NOP>
-nnoremap <Right> <NOP>
-nnoremap <Left> <NOP>
+" inoremap <Up> <NOP>
+" inoremap <Down> <NOP>
+" inoremap <Right> <NOP>
+" inoremap <Left> <NOP>
+" nnoremap <Up> <NOP>
+" nnoremap <Down> <NOP>
+" nnoremap <Right> <NOP>
+" nnoremap <Left> <NOP>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
