@@ -39,7 +39,7 @@ fi
         _OLD_PATH=${PATH}
         _OLD_PS1=${PS1}
         # Set new path on top of all
-        export PATH=${HOME}/Library/Python/3.5/bin:${PATH}
+        export PATH=${HOME}/Library/Python/3.6/bin:${PATH}
         # Indicate that we are in a python3 environment
         export PS1="(BrewPy3) $PS1"
         # Set notebook3 alias
