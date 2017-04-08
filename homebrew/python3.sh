@@ -8,8 +8,13 @@ echo "  Install ipython 3 kernel for ipython notebook ..."
 python3 -m pip install ipykernel --user
 python3 -m ipykernel install --user --display-name "Python 3 (Homebrew)"
 
-echo "  Link 'jupyter-*' binaries in py3 user folder to 'jupyter3-*'."
 PY3VERSION=$(python3 -c "import sys; print('{}.{}'.format(*sys.version_info[:2]))")
+
+echo "  Create 'local.pth' in python user folder to prefer the user packages"
+echo "  over the systems ones. Check paths later with `$ python -m site` ..."
+echo "import sys; sys.path.insert(1,'${HOME}/Library/Python/${PY3VERSION}/lib/python/site-packages')" >> ${HOME}/Library/Python/"$PY3VERSION"/lib/python/site-packages/local.pth
+
+echo "  Link 'jupyter-*' binaries in py3 user folder to 'jupyter3-*'."
 cd ${HOME}/Library/Python/"$PY3VERSION"/bin
 for j in ./jupyter*; do
 	ln -s $j "${j:0:9}3${j:9:100}";
