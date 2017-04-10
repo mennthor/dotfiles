@@ -2,6 +2,7 @@ astropy
 healpy
 ipykernel
 ipython
+ipywidgets
 jupyter
 jupyter-contrib-nbextensions
 jupyter_nbextensions_configurator
