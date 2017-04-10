@@ -60,6 +60,8 @@ echo ":: Stowing sublime text 3 settings to packages folder ::"
 TARGET="${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
 mkdir -p "$TARGET"
 stow --target="$TARGET" -v sublimetext3
+echo "Manually cloning LaTeX-cwl files to ST3 packages folder"
+git clone https://github.com/LaTeXing/LaTeX-cwl.git "$TARGET"/LaTeX-cwl
 
 echo "-----------------------------------------------------------------------"
 echo ":: Setting up neovim ::"
