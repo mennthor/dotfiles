@@ -34,6 +34,10 @@ jupyter-nbextension enable codefolding/main
 jupyter-nbextension enable ruler/main
 jupyter-nbextension enable hide_input_all/main
 
+# Enable and setup JavaScript widgets for tqdm_notebook
+jupyter-nbextension install --py --user widgetsnbextension
+jupyter-nbextension enable --py --user widgetsnbextension
+
 # Enable and setup RISE live slide extension
 jupyter-nbextension install rise --py --user
 jupyter-nbextension enable rise --py --user
