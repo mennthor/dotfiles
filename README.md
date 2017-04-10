@@ -29,6 +29,7 @@ This will currently install
 - Link Google Drive and Dropbox folder to home if not exisitng yet
 - Stow all dotfiles from 'dotfiles/' to home folder
 - Stow Sublime Text 3 user folder
+    + LaTeX-cwl package for more autocomplete options is cloned manually to the packages folder
 - Setup neovim
 - Update and setup MacTex
 
