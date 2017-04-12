@@ -11,6 +11,7 @@
 
 ########################################################################
 # Allgemein
+defshell -bash
 startup_message  off   # Keine Willkommensnachricht
 vbell            off   # Kein visuelles Blinken
 msgwait 1              # Nachrichten für 1 Sekunden anzeigen
