@@ -73,6 +73,10 @@ fi
     # Add path to json file managing the data file paths
     # export ICDATAPATH=$ICPATH/data/ICDataPaths.json
 
+# Init pyenv python version manager
+eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
 
 ##############################################################################
 #### Alias
