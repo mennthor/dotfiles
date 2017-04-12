@@ -97,8 +97,6 @@ alias gitpall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && c
 
 # screen
 alias scls="screen -ls"
-alias scs="screen -S"
-alias scx="screen -x"
 
 # Mount phido, e5login, cobalt, macmini. x = proxy mount
 alias mntphido="sshfs phido1:/ ${HOME}/sshfs/phido -o volname=phido,auto_cache,reconnect,defer_permissions,noappledouble"
