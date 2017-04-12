@@ -1,4 +1,4 @@
-_tunnel()
+_known_hosts()
 {
     local cur prev opts
     COMPREPLY=()
@@ -9,17 +9,6 @@ _tunnel()
     COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
     return 0
 }
-complete -F _tunnel tunnel
 
-_mntsshfs()
-{
-    local cur prev opts
-    COMPREPLY=()
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
-    opts=$(grep '^Host' ~/.ssh/config | grep -v '[?*]' | cut -d ' ' -f 2-)
-
-    COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
-    return 0
-}
-complete -F _mntsshfs mntsshfs
+complete -F _known_hosts tunnel
+complete -F _known_hosts mntsshfs
