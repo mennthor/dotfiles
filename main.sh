@@ -63,6 +63,13 @@ stow --target="$TARGET" -v sublimetext3
 echo "Manually cloning LaTeX-cwl files to ST3 packages folder"
 git clone https://github.com/LaTeXing/LaTeX-cwl.git "$TARGET"/LaTeX-cwl
 
+
+echo "-----------------------------------------------------------------------"
+echo ":: Setting up tmux ::"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source .tmux.conf
+
+
 echo "-----------------------------------------------------------------------"
 echo ":: Setting up neovim ::"
 echo "  Unstow nvim to prevent symlinking the whole plugged folder"
