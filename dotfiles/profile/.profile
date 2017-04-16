@@ -89,6 +89,8 @@ alias cpp="pwd | pbcopy"
 alias notebook="jupyter-notebook"
 alias bing="${HOME}/Google\ Drive/osx/scripts/Bing_Wallpapers/bing_wallpaper.sh"
 alias daily="bing && brew update && brew upgrade"
+# Exit ranger to current dir
+alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 
 # Make interactive ssh tunnel. $1 = host from .ssh/config, $2 = port
 function tunnel {

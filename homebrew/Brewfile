@@ -30,6 +30,7 @@ brew 'pandoc'
 brew 'python3'
 brew 'trash'
 brew 'wget'
+brew 'ranger'
 brew 'reattach-to-user-namespace'
 brew 'stow'
 brew 'tmux' --with-utf8proc
