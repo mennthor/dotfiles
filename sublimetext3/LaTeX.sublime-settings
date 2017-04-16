@@ -9,7 +9,8 @@
 	"extensions":
 	[
 		"tex",
-		"sty"
+		"sty",
+		"cls"
 	],
 	"highlight_line": false,
 	"line_numbers": true,
