@@ -33,7 +33,7 @@ brew 'wget'
 brew 'ranger'
 brew 'reattach-to-user-namespace'
 brew 'stow'
-brew 'tmux' --with-utf8proc
+brew 'tmux' --with-utf8proc --HEAD
 brew 'vimpager'
 
 
