@@ -42,5 +42,9 @@ jupyter-nbextension enable --py --user widgetsnbextension
 jupyter-nbextension install rise --py --user
 jupyter-nbextension enable rise --py --user
 
+# Insert custom_sublime.js to custom.js to enable sublime text shortcuts
+mkdir -p $(jupyter --config)/custom
+cat custom_sublime.js >> $(jupyter --config)/custom/custom.js
+
 echo "  Make `python` link in py2 user folder to encapsulate the system python."
 ln -s /usr/bin/python ${HOME}/Library/Python/2.7/bin/python
