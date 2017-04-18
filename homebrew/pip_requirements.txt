@@ -1,4 +1,6 @@
 astropy
+corner
+emcee
 healpy
 ipykernel
 ipython
