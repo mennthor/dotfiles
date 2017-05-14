@@ -16,50 +16,50 @@ fi
 ##############################################################################
 #### Environment variables
 # System Python with packages in ~/Library/Python/2.7: preferred Python path
-    export PATH=${HOME}/Library/Python/2.7/bin:${PATH}
+export PATH=${HOME}/Library/Python/2.7/bin:${PATH}
 
 # Homebrew Python 3: Activate on demand (virtualenv style)
-    function activate_python3 {
-        # Function to deactivate
-        function deactivate {
-            # Restore original state
-            if [ ! -z "$_OLD_PATH" ]; then
-                export PATH=${_OLD_PATH}
-                export PS1=${_OLD_PS1}
-                unset _OLD_PATH
-                unset _OLD_PS1
-                unalias notebook3
-                # Also remove this function from the scope
-                unset -f deactivate
-            fi
-            }
-        # If we are already running an active py3 environment
-        deactivate
-        # Save old env vars
-        _OLD_PATH=${PATH}
-        _OLD_PS1=${PS1}
-        # Set new path on top of all
-        export PATH=${HOME}/Library/Python/3.6/bin:${PATH}
-        # Indicate that we are in a python3 environment
-        export PS1="(BrewPy3) $PS1"
-        # Set notebook3 alias
-        alias notebook3="jupyter3-notebook"
-    }
+function activate_python3 {
+    # Function to deactivate
+    function deactivate {
+        # Restore original state
+        if [ ! -z "$_OLD_PATH" ]; then
+            export PATH=${_OLD_PATH}
+            export PS1=${_OLD_PS1}
+            unset _OLD_PATH
+            unset _OLD_PS1
+            unalias notebook3
+            # Also remove this function from the scope
+            unset -f deactivate
+        fi
+        }
+    # If we are already running an active py3 environment
+    deactivate
+    # Save old env vars
+    _OLD_PATH=${PATH}
+    _OLD_PS1=${PS1}
+    # Set new path on top of all
+    export PATH=${HOME}/Library/Python/3.6/bin:${PATH}
+    # Indicate that we are in a python3 environment
+    export PS1="(BrewPy3) $PS1"
+    # Set notebook3 alias
+    alias notebook3="jupyter3-notebook"
+}
 
 # Java
-    export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Ruby gem user install directory
     # export PATH=$PATH:${HOME}/.gem/ruby/2.0.0/bin
 
 # ROOT, TRUEE
-    function useROOT6 {
-        export ROOTSYS=${HOME}/bin/root6/v6.06.08/build
-        source $ROOTSYS/bin/thisroot.sh
-        echo "~~ Activated ROOT6 environment ~~"
-        echo "     Version $(root-config --version) with Python $(root-config --python-version) in"
-        echo "       $(root-config --bindir)"
-    }
+function useROOT6 {
+    export ROOTSYS=${HOME}/bin/root6/v6.06.08/build
+    source $ROOTSYS/bin/thisroot.sh
+    echo "~~ Activated ROOT6 environment ~~"
+    echo "     Version $(root-config --version) with Python $(root-config --python-version) in"
+    echo "       $(root-config --bindir)"
+}
 
 # IceCube
     # Create some useful paths
@@ -75,7 +75,9 @@ fi
 
 # Init pyenv python version manager
 eval "$(pyenv init -)"
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then
+    eval "$(pyenv virtualenv-init -)";
+fi
 
 
 ##############################################################################
