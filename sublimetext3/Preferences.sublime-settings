@@ -1,7 +1,7 @@
 {
 	"animation_enabled": false,
 	"auto_complete_commit_on_tab": true,
-	"color_scheme": "Packages/User/Smyck/Smyck.tmTheme",
+	"color_scheme": "Packages/User/Nord/Nord.tmTheme",
 	"detect_indentation": true,
 	"dictionary": "Packages/Dictionaries/German.dic",
 	"draw_white_space": "all",
