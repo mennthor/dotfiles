@@ -1,0 +1,15 @@
+# ROOT, TRUEE
+# function useROOT6 {
+#     export ROOTSYS=${HOME}/bin/root6/v6.06.08/build
+#     source $ROOTSYS/bin/thisroot.sh
+#     echo "~~ Activated ROOT6 environment ~~"
+#     echo "     Version $(root-config --version) with Python $(root-config --python-version) in"
+#     echo "       $(root-config --bindir)"
+# }
+
+# IceCube
+# export ICEPATH=${HOME}/icecube
+# export ICESOFTWARE=${ICPATH}/software
+# export ICESVN=http://code.icecube.wisc.edu/svn
+# export ICEREC=$ICSOFTWARE/icerec/parasitic
+# alias icerec="source ${ICREC}/build/activate.sh"
