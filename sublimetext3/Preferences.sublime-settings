@@ -15,6 +15,8 @@
 		"WordCount"
 	],
 	"indent_to_bracket": true,
+	"draw_indent_guides": true,
+	"indent_guide_options": ["draw_normal"],
 	"open_files_in_new_window": false,
 	"rulers":
 	[
