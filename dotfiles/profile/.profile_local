@@ -17,7 +17,7 @@
 # Imports at ipython startup
   # export PYTHONSTARTUP=${HOME}/.ipython/profile_default/startup/00-basic_imports.py
 
-# Ruby gem user install directory
+# Add ruby gem user directory to path (check with `gem environment`)
   # export PATH=$PATH:${HOME}/.gem/ruby/2.0.0/bin
 
 # Homebrew Python 3: Activate on demand (virtualenv style)
