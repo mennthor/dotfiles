@@ -21,9 +21,6 @@ export PATH=${HOME}/Library/Python/2.7/bin:${PATH}
 # Java
 export JAVA_HOME=$(/usr/libexec/java_home)
 
-# Ruby gem user install directory
-    # export PATH=$PATH:${HOME}/.gem/ruby/2.0.0/bin
-
 # Init pyenv python version manager
 eval "$(pyenv init -)"
 if which pyenv-virtualenv-init > /dev/null; then
