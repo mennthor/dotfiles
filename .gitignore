@@ -17,7 +17,3 @@ sublimetext3/Sublimerge\ Macros.sublime-commands
 
 sublimetext3/Sublimerge.tmTheme
 sublimetext3/SublimergeSummaryPanel.tmTheme
-
-# local profile
-dotfiles/profile/.profile_local
-

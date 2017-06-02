@@ -53,6 +53,9 @@ echo ":: Stowing dotfiles to home folder ::"
 for d in `ls ./dotfiles`; do
 	stow --dir=dotfiles --target=${HOME} -v $d
 done  # Unstow with -vD option
+echo"Local .profile get's unstowed and copied instead"
+	rm ${HOME}.profile_local
+	cp "./dotfiles/profile/.profile_local" ${HOME}
 
 
 echo "-----------------------------------------------------------------------"

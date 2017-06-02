@@ -1,3 +1,6 @@
+# Ruby gem user install directory
+# export PATH=$PATH:${HOME}/.gem/ruby/2.0.0/bin
+
 # ROOT, TRUEE
 # function useROOT6 {
 #     export ROOTSYS=${HOME}/bin/root6/v6.06.08/build
