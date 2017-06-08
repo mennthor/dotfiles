@@ -54,3 +54,8 @@
 	dfc = diff HEAD^1 HEAD
 	# Thanks to ibab/dotfiles/.../.gitignore
 	lg = log --pretty=oneline --abbrev-commit --graph --decorate
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
