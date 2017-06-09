@@ -52,6 +52,8 @@
 	co = checkout
 	df = diff --name-only HEAD^1 HEAD
 	dfc = diff HEAD^1 HEAD
+	# stash & pull & pop
+	spp = "!git stash; git pull; git stash pop"
 	# Thanks to ibab/dotfiles/.../.gitignore
 	lg = log --pretty=oneline --abbrev-commit --graph --decorate
 [filter "lfs"]
