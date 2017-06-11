@@ -6,7 +6,7 @@ tap 'homebrew/completions'  # Completion scripts
 tap 'caskroom/fonts'        # Fonts
 tap 'homebrew/dupes'        # Up-to-date versions of OSX tools
 tap 'homebrew/science'      # Stand back, I'll try science
-
+tap 'homebrew/core'         # For sshfs
 
 ## Make sure cask installs apps in '/Applications'
 cask_args appdir: '/Applications'
@@ -48,6 +48,7 @@ cask 'java'
 cask 'jdownloader'
 cask 'karabiner'
 cask 'mactex'
+cask 'osxfuse'
 cask 'plex-media-server'
 cask 'skype'
 cask 'slack'
