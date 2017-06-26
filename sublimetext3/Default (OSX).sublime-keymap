@@ -24,5 +24,8 @@
         "command": "move", "args": {"by": "pages", "forward": true} },
     // Fold/Unfold code
     { "keys": ["super+shift+1"], "command": "fold" },
-    { "keys": ["super+shift+2"], "command": "unfold" }
+    { "keys": ["super+shift+2"], "command": "unfold" },
+    // Fix tab cycling: https://goo.gl/Qn3g25
+    { "keys": ["ctrl+tab"], "command": "next_view" },
+    { "keys": ["ctrl+shift+tab"], "command": "prev_view" }
 ]
