@@ -2,6 +2,8 @@
 # Author: Seth House <seth@eseth.com>
 # See http://linux.die.net/man/1/bash for all vi commands/variables
 
+# set editing-mode vi  # Disables Emacs Ctrl-* shortcuts...
+
 # Adds punctuation as word delimiters
 set bind-tty-special-chars off
 
