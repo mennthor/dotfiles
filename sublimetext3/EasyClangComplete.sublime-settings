@@ -14,14 +14,26 @@
 
   // Specify common flags that will be passed to clang for EVERY build.
   "common_flags" : [
+    // this is needed to include the correct headers for clang
+    "-I/usr/lib/clang/$clang_version/include",
+    "-I/Users/tmenne/Library/Python/2.7/include/python2.7",
+    "-I/Users/tmenne/.pyenv/versions/3.6.1/include/python3.6m",
+    // Defaults
     "-I/usr/include/c++/4.2.1",
     // some example includes
     "-I/usr/include",
     "-I/usr/local/lib",
-    "-I$project_base_path/src",
-    // this is needed to include the correct headers for clang
-    "-I/usr/lib/clang/$clang_version/include",
-    "-I/Users/tmenne/Library/Python/2.7/include/python2.7",
-    "-I/Users/tmenne/.pyenv/versions/3.6.1/include/python3.6m"
-  ]
+    "-I$project_base_path/src"
+  ],
+  // Use libclang.
+  // If set to false will use clang_binary and parse the output of
+  // `clang_binary -Xclang -code-complete-at...` instead.
+  "use_libclang" : true,
+  // Show additional information on hover over function call/variable etc.
+  // This replaces default sublime on hover behaviour
+  "show_type_info": true,
+  // Pick the progress style. There are currently these styles available:
+  // - "ColorSublime" : '⣾⣽⣻⢿⡿⣟⣯⣷'
+  // - "Moon"         : '🌑🌒🌓🌔🌕🌖🌗🌘'
+  "progress_style": "ColorSublime"
 }
