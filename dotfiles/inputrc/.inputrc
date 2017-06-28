@@ -1,13 +1,6 @@
 # Best goddamn inputrc in the whole world. MODIFIED
-# Author: Seth House <seth@eseth.com>
+# https://github.com/whiteinge/dotfiles/blob/master/.inputrc
 # See http://linux.die.net/man/1/bash for all vi commands/variables
-
-set editing-mode vi
-set show-mode-in-prompt on
-set vi-ins-mode-string \1\e[6 q\2
-set vi-cmd-mode-string \1\e[2 q\2
-set keymap vi-insert
-RETURN: "\e\n"
 
 # Adds punctuation as word delimiters
 set bind-tty-special-chars off
@@ -26,3 +19,34 @@ set input-meta on
 set output-meta on
 set convert-meta off
 
+# Vi mode
+set editing-mode vi
+set show-mode-in-prompt on
+set vi-ins-mode-string "+"
+set vi-cmd-mode-string ":"
+
+$if mode=vi
+    set keymap vi-command
+    "gg": beginning-of-history
+    "G": end-of-history
+
+    # Use also emacs keys in insert mode, best of both ;)
+    set keymap vi-insert
+    "\C-l": clear-screen
+    "\C-w": backward-kill-word
+    "\C-k": kill-line
+    "\C-a": beginning-of-line
+    "\C-e": end-of-line
+    # auto-complete from the history
+    "\C-p": history-search-backward
+    "\C-n": history-search-forward
+$endif
+
+$if Bash
+$endif
+
+$if Python
+$endif
+
+# IPython doesn't seem to work :weary:
+set keymap vi
