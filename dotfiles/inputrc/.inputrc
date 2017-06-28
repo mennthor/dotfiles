@@ -2,7 +2,12 @@
 # Author: Seth House <seth@eseth.com>
 # See http://linux.die.net/man/1/bash for all vi commands/variables
 
-# set editing-mode vi  # Disables Emacs Ctrl-* shortcuts...
+set editing-mode vi
+set show-mode-in-prompt on
+set vi-ins-mode-string \1\e[6 q\2
+set vi-cmd-mode-string \1\e[2 q\2
+set keymap vi-insert
+RETURN: "\e\n"
 
 # Adds punctuation as word delimiters
 set bind-tty-special-chars off
