@@ -9,11 +9,13 @@
 
 cli=/usr/local/bin/karabiner
 
-$cli set remap.controlL2controlL_escape 1
-/bin/echo -n .
+# Remap Caps to Esc, Needs system settings -> keyboard -> advanced -> no action
+# $cli set remap.controlL2controlL_escape 1
+# /bin/echo -n .
+# $cli set remap.escape2capslock 1
+# /bin/echo -n .
+# Remap Fn with CtrL for MacBook
 $cli set remap.controlL2fn 1
-/bin/echo -n .
-$cli set remap.escape2capslock 1
 /bin/echo -n .
 $cli set remap.fn_consumer_to_fkeys_f1 1
 /bin/echo -n .
