@@ -71,16 +71,16 @@
                 <string>#D8DEE955</string>
 
                 <!-- Selection :
-                     bg: deep blue [nord10], #55 alpha,
+                     bg: medium light grey [nord4], #55 alpha,
                      border: medium light grey [nord4],
                      inactive window: deep blue [nord10], #33 alpha,
                  -->
                 <key>selection</key>
-                <string>#5E81AC55</string>
+                <string>#D8DEE955</string>
                 <key>selectionBorder</key>
                 <string>#D8DEE9</string>
                 <key>inactiveSelection</key>
-                <string>#5E81AC33</string>
+                <string>#5E81AC55</string>
 
                 <!-- Guides :
                      guide, stacked: medium light grey [nord4], #33 alpha
@@ -93,9 +93,9 @@
                 <key>stackGuide</key>
                 <string>#D8DEE933</string>
 
-                <!-- Highlight : border medium light grey [nord4] -->
+                <!-- Highlight : border blue green cool [nord7] -->
                 <key>highlight</key>
-                <string>#D8DEE9</string>
+                <string>#8FBCBB</string>
                 <key>highlightForeground</key>
                 <string>#FFF0</string>
 
