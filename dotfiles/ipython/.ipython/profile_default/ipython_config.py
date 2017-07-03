@@ -11,3 +11,6 @@ c.InteractiveShellApp.exec_lines = [
     "import matplotlib.pyplot as plt",
     "import scipy.stats as scs"
 ]
+
+# http://koo.fi/blog/2016/08/04/enable-vi-editing-mode-in-ipython-5/
+c.TerminalInteractiveShell.editing_mode = 'vi'
