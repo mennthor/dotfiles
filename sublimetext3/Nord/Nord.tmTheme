@@ -504,7 +504,55 @@
 
 
         <!-- Language Scope Styles -->
-        <!-- Non defined yet -->
+        <!-- Python -->
+        <!-- support.function : Green [nord14] {eval, rangem enumerate, etc.} -->
+        <dict>
+            <key>name</key>
+            <string>Support Type</string>
+            <key>scope</key>
+            <string>support.function</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#81A1C1</string>
+                <key>background</key>
+                <string>#FFF0</string>
+                <key>fontStyle</key>
+                <string></string>
+            </dict>
+        </dict>
+        <!-- support.type : Green [nord14] {Types int, float, etc.} -->
+        <dict>
+            <key>name</key>
+            <string>Support Type</string>
+            <key>scope</key>
+            <string>support.type.python</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#81A1C1</string>
+                <key>background</key>
+                <string>#FFF0</string>
+                <key>fontStyle</key>
+                <string></string>
+            </dict>
+        </dict>
+        <!-- constant.language : Green [nord14] {None, True, False} -->
+        <dict>
+            <key>name</key>
+            <string>Constant Language</string>
+            <key>scope</key>
+            <string>constant.language.python</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#81A1C1</string>
+                <key>background</key>
+                <string>#FFF0</string>
+                <key>fontStyle</key>
+                <string></string>
+            </dict>
+        </dict>
 
 
     </array>
