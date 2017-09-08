@@ -19,13 +19,14 @@ set input-meta on
 set output-meta on
 set convert-meta off
 
-# Vi mode
-set editing-mode vi
-set show-mode-in-prompt on
-set vi-ins-mode-string "+"
-set vi-cmd-mode-string ":"
+# Vi mode [vi|emacs]
+set editing-mode emacs
 
 $if mode=vi
+    set show-mode-in-prompt on
+    set vi-ins-mode-string "+"
+    set vi-cmd-mode-string ":"
+
     set keymap vi-command
     "gg": beginning-of-history
     "G": end-of-history
