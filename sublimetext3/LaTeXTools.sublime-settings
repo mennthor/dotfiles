@@ -1,9 +1,33 @@
 {
 // ------------------------------------------------------------------
+// General settings
+// ------------------------------------------------------------------
+
+	// Cite/ref autocompletion by default is triggered after e.g. \ref{. If you don't like this,
+	// set to false. You can also use toggles: C-l,t,a,c and C-l,t,a,r.
+	"cite_auto_trigger": true,
+	"ref_auto_trigger": true,
+
+	// Fill-helper autocompletion triggered for a wide range of references to external
+	// files. You can also use toggle: C-l,t,a,f
+	"fill_auto_trigger": true,
+
+	// Fill-helper autocompletion trigger for environment names after \begin{ and \end{
+	// this requires the LaTeX-cwl package and might not have a complete list of all environments.
+	// You can also use toggle: C-l,t,a,e
+	"env_auto_trigger": false,
+
+// ------------------------------------------------------------------
 // Preview settings
 // ------------------------------------------------------------------
 
 	// MATH LIVE PREVIEW
+
+	// The preview mode for math live preview, possible values are:
+	// "all"       to show a phantom for each math environment
+	// "selected"  to show a phantom only for the currently selected math environment
+	// "none"      to disable math live preview
+	"preview_math_mode": "none",
 
 	// The program to compile the latex template files, possible values are
 	// pdflatex, xelatex, lualatex, latex

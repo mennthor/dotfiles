@@ -1,6 +1,29 @@
 {
 	"animation_enabled": false,
 	"auto_complete_commit_on_tab": true,
+	"auto_complete_triggers":
+	[
+		{
+			"characters": ".>:",
+			"selector": "source.c++ - string - comment - constant.numeric"
+		},
+		{
+			"characters": ".>:",
+			"selector": "source.c - string - comment - constant.numeric"
+		},
+		{
+			"characters": ".>: ",
+			"selector": "source.objc++ - string - comment - constant.numeric"
+		},
+		{
+			"characters": ".>: ",
+			"selector": "source.objc - string - comment - constant.numeric"
+		},
+		{
+			"characters": "\\",
+			"selector": "text.tex.latex"
+		}
+	],
 	"color_scheme": "Packages/User/Nord/Nord.tmTheme",
 	"detect_indentation": true,
 	"dictionary": "Packages/Language - English/en_US.dic",
@@ -12,8 +35,7 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		// "Vintage",
-		"WordCount"
+		"Vintage"
 	],
 	"indent_guide_options":
 	[
@@ -29,7 +51,9 @@
 	"show_full_path": true,
 	"spell_check": true,
 	"tab_size": 4,
+	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": false,
 	"trim_trailing_white_space_on_save": true,
-	"wrap_width": 80
+	"wrap_width": 80,
+	"update_check": false,
 }

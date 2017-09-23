@@ -4,7 +4,7 @@
         "command": "toggle_setting", "args": {"setting": "word_wrap"} },
     // New view into file
     { "keys": ["ctrl+shift+n"], "command": "clone_file" },
-    // Push lines up and down
+    // Expand line selector up and down
     { "keys": ["alt+shift+up"],
         "command": "select_lines", "args": {"forward": false} },
     { "keys": ["alt+shift+down"],

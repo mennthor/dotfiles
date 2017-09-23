@@ -11,12 +11,12 @@
 		"EasyClangComplete",
 		"GitGutter",
 		"Greek Letters",
-		"InactivePanes",
 		"LaTeX-cwl",
 		"LaTeXTools",
 		"MarkdownEditing",
 		"Package Control",
 		"Python PEP8 Autoformat",
-		"Sublimerge 3"
+		"Sublimerge 3",
+		"WordCount"
 	]
 }

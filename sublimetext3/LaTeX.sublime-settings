@@ -5,7 +5,7 @@
 	"caret_extra_width": 1,
 	"caret_style": "solid",
 	"color_scheme": "Packages/User/MarkdownEditingColorScheme/MarkdownEditor.tmTheme",
-	"draw_centered": true,
+	"draw_centered": false,
 	"extensions":
 	[
 		"tex",
@@ -14,16 +14,15 @@
 	],
 	"highlight_line": false,
 	"line_numbers": true,
-	"line_padding_bottom": 2,
-	"line_padding_top": 2,
+	"line_padding_bottom": 0,
+	"line_padding_top": 0,
 	"rulers":
 	[
-		80,
-		86
+		80
 	],
 	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": false,
+	"trim_trailing_white_space_on_save": true,
 	"word_wrap": true,
-	"wrap_width": 86
+	"wrap_width": 80
 }

@@ -1,0 +1,9 @@
+{
+	"extensions":
+	[
+		"submit",
+		"dag",
+		"options",
+		".profile_local"
+	]
+}
