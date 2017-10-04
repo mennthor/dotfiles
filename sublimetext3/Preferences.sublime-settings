@@ -47,6 +47,7 @@
 	[
 		80
 	],
+	"scroll_past_end": true,
 	"show_encoding": true,
 	"show_full_path": true,
 	"spell_check": true,
