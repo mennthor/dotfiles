@@ -4,6 +4,7 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
+	quotepath = off
 
 # Thanks to http://toolbox.pep-dortmund.org
 [pull]
