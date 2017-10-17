@@ -2,8 +2,8 @@
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-# CLI Prefix: User:Path(blue)$
-export PS1="\u:\[\e[34m\]\W\[\e[0m\]\$ "
+# CLI Prefix: User:Path(blue)$ (blue: \[\e[34m\], reset: \[\e[0m\])
+export PS1="\u:\[\e[34m\]\W\[\e[0m\]\\$ "
 # Editor
 export EDITOR="nvim"
 
