@@ -51,11 +51,6 @@ let g:solarized_termcolors=256
 highlight ColorColumn ctermbg=Black
 let &colorcolumn=join(range(81,999),",")
 
-" Highlight current line
-set cursorline
-highlight clear CursorLine
-hi CursorLine gui=None cterm=underline ctermfg=None guifg=None
-
 " Linenumbers
 set number
 
