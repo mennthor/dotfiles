@@ -45,6 +45,7 @@ alias cpp="pwd | pbcopy"
 alias notebook="jupyter-notebook"
 alias bing="${HOME}/Google\ Drive/osx/scripts/Bing_Wallpapers/bing_wallpaper.sh"
 alias daily="bing && brew update && brew upgrade"
+alias gdiff="git diff --no-index"
 
 # Make interactive ssh tunnel. $1 = host from .ssh/config, $2 = port
 function tunnel {
