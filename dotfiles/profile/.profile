@@ -47,6 +47,17 @@ alias bing="${HOME}/Google\ Drive/osx/scripts/Bing_Wallpapers/bing_wallpaper.sh"
 alias daily="bing && brew update && brew upgrade"
 alias gdiff="git diff --no-index"
 
+# Use sublime text's sublimerge plugin as a CLI diff tool.
+function subldiff {
+  # From: https://www.sublimerge.com/sm3/docs/vcs-integration.html
+  if [ "$#" -ne 2 ]; then
+    echo "Need 2 parameters: <LEFT_FILE> <RIGHT_FILE>"
+    return 0
+  fi
+  echo "Comparing file $1 on the left and $2 on the right."
+  subl -n --wait "$1" "$2" --command 'sublimerge_diff_views'
+}
+
 # Make interactive ssh tunnel. $1 = host from .ssh/config, $2 = port
 function tunnel {
     if [ "$1" == "-h" ]; then
