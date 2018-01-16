@@ -2,7 +2,8 @@
     // Set python paths
     "python_interpreter" : "/usr/bin/python",
     // "python_interpreter" : "/usr/local/bin/python3",
-    "anaconda_linting_behaviour": "always",
+    "anaconda_linting_behaviour": "load-save",
+    "anaconda_linter_delay": 1.,
     "anaconda_linter_mark_style": "stippled_underline",
     "pep8_max_line_length": 80
 }
