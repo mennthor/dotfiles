@@ -27,5 +27,7 @@
     { "keys": ["super+shift+2"], "command": "unfold" },
     // Fix tab cycling: https://goo.gl/Qn3g25
     { "keys": ["ctrl+tab"], "command": "next_view" },
-    { "keys": ["ctrl+shift+tab"], "command": "prev_view" }
+    { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+    // EasyClangComlete steals this (if not working, delete ECC keymap)
+    { "keys": ["ctrl+shift+e"] }
 ]
