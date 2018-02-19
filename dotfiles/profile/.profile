@@ -45,7 +45,7 @@ alias vp="vimpager"
 alias cpp="pwd | pbcopy"
 alias notebook="jupyter-notebook"
 alias bing="${HOME}/Google\ Drive/osx/scripts/Bing_Wallpapers/bing_wallpaper.sh"
-alias brewup="brew update && brew upgrade && brew caskk upgrade && brew cask cleanup"
+alias brewup="brew update && brew upgrade && brew cask upgrade && brew cask cleanup"
 alias daily="bing && brewup"
 alias gdiff="git diff --no-index"
 
