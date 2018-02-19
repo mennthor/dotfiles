@@ -25,6 +25,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 eval "$(pyenv init -)"
 if which pyenv-virtualenv-init > /dev/null; then
     eval "$(pyenv virtualenv-init -)";
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=0  # Still show venv in PS1
 fi
 
 
@@ -44,7 +45,8 @@ alias vp="vimpager"
 alias cpp="pwd | pbcopy"
 alias notebook="jupyter-notebook"
 alias bing="${HOME}/Google\ Drive/osx/scripts/Bing_Wallpapers/bing_wallpaper.sh"
-alias daily="bing && brew update && brew upgrade"
+alias brewup="brew update && brew upgrade && brew caskk upgrade && brew cask cleanup"
+alias daily="bing && brewup"
 alias gdiff="git diff --no-index"
 
 # Use sublime text's sublimerge plugin as a CLI diff tool.
