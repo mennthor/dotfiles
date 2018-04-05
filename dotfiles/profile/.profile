@@ -5,7 +5,7 @@ export LC_ALL="en_US.UTF-8"
 # CLI Prefix: User:Path(blue)$ (blue: \[\e[34m\], reset: \[\e[0m\])
 export PS1="\u:\[\e[34m\]\W\[\e[0m\]\\$ "
 # Editor
-export EDITOR="nvim"
+export EDITOR="vim"
 
 # Bash completion from homebrew
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
