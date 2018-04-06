@@ -80,14 +80,14 @@ alias gitpall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && c
 # Mount remote filesystem via sshfs function
 function mntsshfs {
     if [ "$1" == "-h" ]; then
-      echo "Usage: mntsshfs <ssh_host> [remote_dir, '/']"
+      echo "Usage: mntsshfs <ssh_host> [remote_dir, '~']"
       echo "Mounts a remote file system via sshfs to ~/sshfs/<ssh_host>"
       return 0
     fi
     if [ -z "$1" ]; then
         echo "Need ssh host from config as argument. Exiting."; return 1 2>/dev/null;
     fi
-    MNTDIR="${2:-/}"
+    MNTDIR="${2:-~}"
     mkdir -p ${HOME}/sshfs/"$1"
     sshfs "$1":"$2" ${HOME}/sshfs/"$1" -o volname="$1",auto_cache,reconnect,defer_permissions,noappledouble
 }
