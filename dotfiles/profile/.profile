@@ -48,46 +48,133 @@ alias bing="${HOME}/Google\ Drive/osx/scripts/Bing_Wallpapers/bing_wallpaper.sh"
 alias brewup="brew update && brew upgrade && brew cask upgrade && brew cask cleanup"
 alias daily="bing && brewup"
 alias gdiff="git diff --no-index"
-
-# Use sublime text's sublimerge plugin as a CLI diff tool.
-function subldiff {
-  # From: https://www.sublimerge.com/sm3/docs/vcs-integration.html
-  if [ "$#" -ne 2 ]; then
-    echo "Need 2 parameters: <LEFT_FILE> <RIGHT_FILE>"
-    return 0
-  fi
-  echo "Comparing file $1 on the left and $2 on the right."
-  subl -n --wait "$1" "$2" --command 'sublimerge_diff_views'
-}
-
-# Make interactive ssh tunnel. $1 = host from .ssh/config, $2 = port
-function tunnel {
-    if [ "$1" == "-h" ]; then
-      echo "Usage: tunnel <ssh_host> <port>"
-      echo "Open an interactive tunnel to <ss_host> on <port>"
-      return 0
-    fi
-    if [ -z "$2" ]; then
-        echo "Need port number as 2nd argument. Exiting."; return 1 2>/dev/null;
-    fi
-    ssh -t -L $2:localhost:$2 $1
-}
-
 # From https://coderwall.com/p/grmruq/git-status-on-all-repos-in-folder
 alias gitsall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
 alias gitpall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git pull && echo)' \;"
 
-# Mount remote filesystem via sshfs function
+
+function subldiff {
+HELP="Usage:
+  subldiff <LEFT_FILE> <RIGHT_FILE>
+
+Uses subldiff plugin to diff two files in a Sublime Text view.
+"
+  for i in "$@"
+  do
+    case $i in
+      -h|--help)
+        echo "$HELP"
+        return 0
+        ;;
+    esac
+  done
+
+  if [ "$#" -ne 2 ]; then  # $# = Number of args
+    echo "Need 2 parameters: <LEFT_FILE> <RIGHT_FILE>"
+    echo ""
+    echo "$HELP"
+    return 0
+  fi
+
+  # From: https://www.sublimerge.com/sm3/docs/vcs-integration.html
+  echo "Comparing file $1 on the left and $2 on the right."
+  subl -n --wait "$1" "$2" --command 'sublimerge_diff_views'
+}
+
+
+function tunnel {
+HELP="Usage:
+  tunnel [-p=<port>, 2222] <ssh_host>
+
+Open an interactive ssh tunnel to <ssh_host> on <port>.
+"
+  PORT=""
+  for i in "$@"
+  do
+    case $i in
+      -h|--help)
+        echo "$HELP"
+        return 0
+        ;;
+      -p=*)
+        PORT="${i#*=}"  # '#': Pattern substitution
+        shift
+        ;;
+    esac
+  done
+
+  if [ -z $1 ]; then
+    echo "Error: <ssh_host> must be specified as the last non-opt argument!"
+    echo ""
+    echo "$HELP"
+    return 0
+  fi
+
+  HOST="$1"
+  PORT=${PORT:-2222}  # :- Default if par is ""
+
+  echo "Options:"
+  echo "  Host : $HOST"
+  echo "  Port : $PORT"
+
+  ssh -t -L $PORT:localhost:$PORT "$HOST"
+}
+
+
 function mntsshfs {
-    if [ "$1" == "-h" ]; then
-      echo "Usage: mntsshfs <ssh_host> [remote_dir, '~']"
-      echo "Mounts a remote file system via sshfs to ~/sshfs/<ssh_host>"
-      return 0
-    fi
-    if [ -z "$1" ]; then
-        echo "Need ssh host from config as argument. Exiting."; return 1 2>/dev/null;
-    fi
-    MNTDIR="${2:-~}"
-    mkdir -p ${HOME}/sshfs/"$1"
-    sshfs "$1":"$2" ${HOME}/sshfs/"$1" -o volname="$1",auto_cache,reconnect,defer_permissions,noappledouble
+HELP="Usage:
+  mntsshfs [-d=<remote_dir>, ~] [-m=<mount_point>, <ssh_host>] <ssh_host>
+
+Mounts a remote file system path <remote_dir> to local <mount_point> via sshfs.
+"
+  # Parsing: stackoverflow.com/questions/192249
+  REM_DIR=""
+  MNT_DIR=""
+  for i in "$@"
+  do
+    case $i in
+      -h|--help)
+        echo "$HELP"
+        return 0
+        ;;
+      -d=*)
+        REM_DIR="${i#*=}"
+        shift  # Shift index to next arg in $@
+        ;;
+      -m=*)
+        MNT_DIR="${i#*=}"
+        shift
+        ;;
+    esac
+  done
+
+  if [ -z $1 ]; then
+    echo "Error: <ssh_host> must be specified as the last non-opt argument!"
+    echo ""
+    echo "$HELP"
+    return 0
+  fi
+  HOST="$1"
+
+  # Setup local mount dir
+  MNT_DIR="${MNT_DIR:-"$HOME/sshfs/$HOST"}"
+  if [ -d "$MNT_DIR" ]; then
+    echo "$MNT_DIR already exists, choose a different local mount point."
+    return 1
+  fi
+  mkdir -p "$MNT_DIR"
+
+  # Get remote home path for default param
+  REM_HOME=$(ssh "$HOST" 'echo $HOME' 2>/dev/null)
+  REM_DIR="${REM_DIR:-"$REM_HOME"}"
+
+  VOLNAME=$(basename "$MNT_DIR")
+  sshfs "$HOST":"$REM_DIR" "$MNT_DIR" \
+    -o volname="$VOLNAME",auto_cache,reconnect,defer_permissions,noappledouble
+
+  echo "Mount options:"
+  echo "  Remote dir : $REM_DIR"
+  echo "  Mount dir  : $MNT_DIR"
+  echo "  Host       : $HOST"
+  echo "  Volname    : $VOLNAME"
 }
