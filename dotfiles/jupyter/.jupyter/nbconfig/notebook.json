@@ -6,10 +6,11 @@
     "command": {
       "bind": {
         "ctrl-shift-c": "jupyter-notebook:clear-all-cells-output", 
+        "c": "jupyter-notebook:copy-cell", 
         "ctrl-c": "jupyter-notebook:clear-cell-output", 
+        "ctrl-e": "jupyter-notebook:scroll-notebook-down", 
         "ctrl-y": "jupyter-notebook:scroll-notebook-up", 
-        "0,c": "jupyter-notebook:confirm-restart-kernel-and-clear-output", 
-        "ctrl-e": "jupyter-notebook:scroll-notebook-down"
+        "0,c": "jupyter-notebook:confirm-restart-kernel-and-clear-output"
       }, 
       "unbind": [
         "space", 
