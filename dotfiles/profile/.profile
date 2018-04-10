@@ -159,8 +159,19 @@ Mounts a remote file system path <remote_dir> to local <mount_point> via sshfs.
   # Setup local mount dir
   MNT_DIR="${MNT_DIR:-"$HOME/sshfs/$HOST"}"
   if [ -d "$MNT_DIR" ]; then
-    echo "$MNT_DIR already exists, choose a different local mount point."
-    return 1
+    read -p "$MNT_DIR already exists, still continue (yes/no)? " CHOICE
+    case "$CHOICE" in
+      yes)
+        ;;
+      no)
+        echo "Exiting."
+        return 1;
+        ;;
+      *)
+        echo "Type (yes|no). Exiting."
+        return 1;
+        ;;
+    esac
   fi
   mkdir -p "$MNT_DIR"
 
