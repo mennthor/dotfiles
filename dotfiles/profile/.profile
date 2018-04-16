@@ -48,6 +48,7 @@ alias bing="${HOME}/Google\ Drive/osx/scripts/Bing_Wallpapers/bing_wallpaper.sh"
 alias brewup="brew update && brew upgrade && brew cask upgrade && brew cask cleanup"
 alias daily="bing && brewup"
 alias gdiff="git diff --no-index"
+alias gti="echo 'Typed gti again...'; git"
 # From https://coderwall.com/p/grmruq/git-status-on-all-repos-in-folder
 alias gitsall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
 alias gitpall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git pull && echo)' \;"
