@@ -1,0 +1,41 @@
+/* https://stackoverflow.com/questions/22386359 */
+/* Change code font */
+.CodeMirror pre {
+    font-family: Hack;
+    font-size: 8pt;
+}
+
+div.output pre{
+    font-family: Hack;
+    font-size: 8pt;
+}
+
+div.output_html td{
+    font-family: Hack;
+    font-size: 7pt;
+}
+
+div.prompt{
+    font-family: Hack;
+    font-size: 7pt;
+}
+
+div.completions select{
+    font-family: Hack;
+    font-size: 8pt;
+}
+
+div.container pre{
+    font-family: Hack;
+    font-size: 8pt;
+}
+
+div.tooltiptext pre{
+    font-family: Hack;
+    font-size: 7pt;
+}
+
+
+div.text_cell {
+    max-width: 90ex; /* instead of 100%, */
+}
