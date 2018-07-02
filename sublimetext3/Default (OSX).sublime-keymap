@@ -28,6 +28,25 @@
     // Fix tab cycling: https://goo.gl/Qn3g25
     { "keys": ["ctrl+tab"], "command": "next_view" },
     { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+    // Switch dicts
+    {
+        "keys": ["ctrl+s", "e"],
+        "command": "set_user_setting",
+        "args": {
+            "file": "Preferences.sublime-settings",
+            "setting": "dictionary",
+            "value": "Packages/Language - English/en_GB.dic"
+        }
+    },
+    {
+        "keys": ["ctrl+s", "d"],
+        "command": "set_user_setting",
+        "args": {
+            "file": "Preferences.sublime-settings",
+            "setting": "dictionary",
+            "value": "Packages/Dictionaries/German_de_DE.dic"
+        }
+    },
     // EasyClangComlete steals this (if not working, delete ECC keymap)
     { "keys": ["ctrl+shift+e"] }
 ]
