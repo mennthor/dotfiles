@@ -6,7 +6,8 @@
 		"unbinned",
 		"frequentist",
 		"Cherenkov",
-		"Poisson"
+		"Poisson",
+		"livetime"
 	],
 	"animation_enabled": false,
 	"auto_complete_commit_on_tab": true,
