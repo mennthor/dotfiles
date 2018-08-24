@@ -7,7 +7,15 @@
 		"frequentist",
 		"Cherenkov",
 		"Poisson",
-		"livetime"
+		"livetime",
+		"timeline",
+		"compactified",
+		"fluence",
+		"ansatz",
+		"timescales",
+		"Blazar",
+		"Likelihood",
+		"timescale"
 	],
 	"animation_enabled": false,
 	"auto_complete_commit_on_tab": true,
