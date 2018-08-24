@@ -28,7 +28,7 @@
     // Fix tab cycling: https://goo.gl/Qn3g25
     { "keys": ["ctrl+tab"], "command": "next_view" },
     { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
-    // Switch dicts
+    // Switch dicts: https://forum.sublimetext.com/t/hotkeys-for-quick-switch-between-spell-checking-languages/21733/3
     {
         "keys": ["ctrl+s", "e"],
         "command": "set_user_setting",
@@ -47,6 +47,10 @@
             "value": "Packages/Dictionaries/German_de_DE.dic"
         }
     },
-    // EasyClangComlete steals this (if not working, delete ECC keymap)
-    { "keys": ["ctrl+shift+e"] }
+    // EasyClangComlete steals the system shortcut 'select to eol': https://wesbos.com/sublime-text-end-of-line-wrap/
+    {
+        "keys": ["ctrl+shift+e"],
+        "command": "move_to",
+        "args": {"to": "hardeol", "extend": true}
+    }
 ]
