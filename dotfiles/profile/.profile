@@ -1,6 +1,6 @@
 # Fix El Capitan UTF8 encoding. Check via `locale
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+# export LANG="en_US.UTF-8"
+# export LC_ALL="en_US.UTF-8"
 
 # CLI Prefix: User:Path(blue)$ (blue: \[\e[34m\], reset: \[\e[0m\])
 export PS1="\u:\[\e[34m\]\W\[\e[0m\]\\$ "
@@ -19,10 +19,16 @@ fi
 export PATH=${HOME}/Library/Python/2.7/bin:${PATH}
 
 # Java
-export JAVA_HOME=$(/usr/libexec/java_home)
+if [ /usr/libexec/java_home -F 2> /dev/null ]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
 
-# Init pyenv python version manager
-eval "$(pyenv init -)"
+# Init pyenv python version manager: https://github.com/pyenv/pyenv#installation
+export PYENV_ROOT=${HOME}/.pyenv
+export PATH=${PYENV_ROOT}/bin:${PATH}
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 if which pyenv-virtualenv-init > /dev/null; then
     eval "$(pyenv virtualenv-init -)";
     export PYENV_VIRTUALENV_DISABLE_PROMPT=0  # Still show venv in PS1
@@ -31,7 +37,9 @@ fi
 
 ##############################################################################
 #### Load local extras
-source ${HOME}/.profile_local
+if [ -f ${HOME}/.profile_local ]; then
+  source ${HOME}/.profile_local
+fi
 
 
 ##############################################################################
@@ -48,7 +56,6 @@ alias bing="${HOME}/Google\ Drive/osx/scripts/Bing_Wallpapers/bing_wallpaper.sh"
 alias brewup="brew update && brew upgrade && brew cask upgrade && brew cask cleanup"
 alias daily="bing && brewup"
 alias gdiff="git diff --no-index"
-alias gti="echo 'Typed gti again...'; git"
 # From https://coderwall.com/p/grmruq/git-status-on-all-repos-in-folder
 alias gitsall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
 alias gitpall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git pull && echo)' \;"
