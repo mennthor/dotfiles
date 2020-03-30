@@ -49,41 +49,40 @@
 ## ROOT, TRUEE
   # export ROOTSYS=${HOME}/Software/root/5.34.34/build
   # source $ROOTSYS/bin/thisroot.sh
-  useROOT6(){
-      export ROOTSYS=${HOME}/bin/root6/v6.06.08/build
-      source $ROOTSYS/bin/thisroot.sh
-      echo "~~ Activated ROOT6 environment ~~"
-      echo "     Version $(root-config --version) with Python $(root-config --python-version) in"
-      echo "       $(root-config --bindir)"
-  }
+  # useROOT6(){
+  #     export ROOTSYS=${HOME}/bin/root6/v6.06.08/build
+  #     source $ROOTSYS/bin/thisroot.sh
+  #     echo "~~ Activated ROOT6 environment ~~"
+  #     echo "     Version $(root-config --version) with Python $(root-config --python-version) in"
+  #     echo "       $(root-config --bindir)"
+  # }
 
   # export PATH=${PATH}:${HOME}/Software/TRUEE/3.4/build/bin
 
 # Add 'cling' C++ interpreter path (successor to 'cint')
-export PATH="/Users/tmenne/bin/cling/inst/bin":$PATH
+# export PATH="/Users/tmenne/bin/cling/inst/bin":$PATH
 
 ## IceCube
 # Create some useful paths
-  export ICPATH="${HOME}/icecube"
-  export ICSOFTWARE="${ICPATH}/software"
-  export ICSVN="http://code.icecube.wisc.edu/svn"
+  # export ICPATH="${HOME}/icecube"
+  # export ICSOFTWARE="${ICPATH}/software"
+  # export ICSVN="http://code.icecube.wisc.edu/svn"
   # export ICREC=$ICSOFTWARE/icerec/parasitic
   # alias icerec="source ${ICREC}/build/activate.sh"
   # export ICSIM=$ICSOFTWARE/simulation/trunk
   # alias icesim="source ${ICSIM}/build/activate.sh"
   # export I3_TESTDATA=~/icecube/data/TESTDATA
-  export ICCOMBO="$ICSOFTWARE/combo/trunk"
-  alias icecombo="source ${ICCOMBO}/build/activate.sh"
+  # export ICCOMBO="$ICSOFTWARE/combo/trunk"
+  # alias icecombo="source ${ICCOMBO}/build/activate.sh"
 # Add path to json file managing the data file paths
   # export ICDATAPATH=$ICPATH/data/ICDataPaths.json
 # Add private script folders to PYTHONPATH
   # export PYTHONPATH=$PYTHONPATH:$ICPATH/scripts
-  export ICPROPOSAL="$ICSOFTWARE/PROPOSAL"
+  # export ICPROPOSAL="$ICSOFTWARE/PROPOSAL"
 
 
 ## Alias
   alias quickhighlight="pbpaste | highlight --syntax=python -O rtf"
-
-  # alias nb2html="jupyter nbconvert --to html --template full"
+  alias nb2html="jupyter nbconvert --to html --template full"
 # Exit ranger to current dir
   # alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
