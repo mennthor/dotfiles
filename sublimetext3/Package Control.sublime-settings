@@ -8,6 +8,7 @@
 		"Anaconda",
 		"AutoFileName",
 		"CMake",
+		"CMakeEditor",
 		"EasyClangComplete",
 		"GitGutter",
 		"Greek Letters",
@@ -16,6 +17,7 @@
 		"MarkdownEditing",
 		"Package Control",
 		"Python PEP8 Autoformat",
+		"SublimeCodeIntel",
 		"Sublimerge 3",
 		"Text Pastry",
 		"WordCount"
