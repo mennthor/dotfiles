@@ -1,76 +1,76 @@
-## Taps
-tap 'caskroom/cask'         # Apps
-tap 'caskroom/versions'
-tap 'neovim/neovim'
-tap 'homebrew/completions'  # Completion scripts
-tap 'caskroom/fonts'        # Fonts
-tap 'homebrew/dupes'        # Up-to-date versions of OSX tools
-tap 'homebrew/science'      # Stand back, I'll try science
-tap 'homebrew/core'         # For sshfs
+# https://github.com/Homebrew/homebrew-bundle
 
-## Make sure cask installs apps in '/Applications'
-cask_args appdir: '/Applications'
+## Taps
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+
+## Make sure cask installs apps in "/Applications"
+# cask_args appdir: "/Applications"
 
 
 ## Basics
-brew 'coreutils'        # GNU up-to-date coreutils
-brew 'findutils'        # GNU 'find', 'locate', etc
-brew 'bash'             # Newest bash version
-brew 'bash-completion'
-brew 'brew-cask-completion'
-brew 'open-completion'
-brew 'pip-completion'
+brew "coreutils"        # GNU up-to-date coreutils
+brew "findutils"        # GNU "find", "locate", etc
+brew "bash"             # Newest bash version
+brew "bash-completion"
+brew "brew-cask-completion"
+brew "open-completion"
+brew "pip-completion"
 
 
 ## CLI binaries
-brew 'git'
-brew 'hdf5'
-brew 'neovim'
-brew 'pandoc'
-brew 'python3'
-brew 'trash'
-brew 'wget'
-brew 'ranger'
-brew 'reattach-to-user-namespace'
-brew 'stow'
-brew 'tmux' --with-utf8proc --HEAD
-brew 'vimpager'
+brew "git"
+brew "neovim"
+brew "pandoc"
+brew "reattach-to-user-namespace"
+brew "stow"
+brew "tmux", args: ["--with-utf8proc", "--HEAD"]
+brew "trash"
+brew "wget"
+# Not used an more
+# brew "hdf5"
+# brew "python3"
+# brew "ranger"
+# brew "vimpager"
 
 
 ## Apps
-cask 'bettertouchtool'
-cask 'dropbox'
-cask 'dterm'
-cask 'flux'
-cask 'google-chrome'
-cask 'google-drive'
-cask 'java'
-cask 'jdownloader'
-cask 'karabiner'
-cask 'mactex'
-cask 'osxfuse'
-cask 'plex-media-server'
-cask 'skype'
-cask 'slack'
-cask 'sublime-text'
-cask 'telegram'
-cask 'vlc'
-cask 'wkhtmltopdf'
+cask "bettertouchtool"
+cask "dropbox"
+cask "google-backup-and-sync"
+cask "google-chrome"
+cask "jdownloader"
+cask "karabiner-elements"
+cask "plex-media-server"
+cask "skype"
+cask "spotify"
+cask "sublime-text"
+cask "telegram"
+cask "vlc"
+# Not used an more
+# cask "dterm"
+# cask "flux"
+# cask "java"
+# cask "mactex"
+# cask "osxfuse"
+# cask "slack"
+# cask "wkhtmltopdf"
 
 # Quicklook plugins
-cask 'qlcolorcode'
-cask 'qlstephen'
-cask 'qlmarkdown'
-cask 'quicklook-json'
-cask 'quicklook-csv'
-cask 'betterzipql'
-cask 'qlimagesize'
+cask "qlcolorcode"
+cask "qlstephen"
+cask "qlmarkdown"
+cask "quicklook-json"
+cask "quicklook-csv"
+cask "betterzipql"
+cask "qlimagesize"
 
 
 ## Fonts
-cask 'font-hack'
-cask 'font-source-code-pro'
-cask 'font-source-sans-pro'
-cask 'font-source-serif-pro'
+cask "font-hack"
+# cask "font-source-code-pro"
+# cask "font-source-sans-pro"
+# cask "font-source-serif-pro"
 
 
