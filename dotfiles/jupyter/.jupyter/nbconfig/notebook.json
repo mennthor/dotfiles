@@ -1,47 +1,48 @@
 {
   "ruler_column": [
     "80"
-  ], 
+  ],
   "keys": {
     "command": {
       "bind": {
-        "ctrl-shift-c": "jupyter-notebook:clear-all-cells-output", 
-        "c": "jupyter-notebook:copy-cell", 
-        "ctrl-c": "jupyter-notebook:clear-cell-output", 
-        "ctrl-e": "jupyter-notebook:scroll-notebook-down", 
-        "ctrl-y": "jupyter-notebook:scroll-notebook-up", 
+        "ctrl-shift-c": "jupyter-notebook:clear-all-cells-output",
+        "c": "jupyter-notebook:copy-cell",
+        "ctrl-c": "jupyter-notebook:clear-cell-output",
+        "ctrl-e": "jupyter-notebook:scroll-notebook-down",
+        "ctrl-y": "jupyter-notebook:scroll-notebook-up",
         "0,c": "jupyter-notebook:confirm-restart-kernel-and-clear-output"
-      }, 
+      },
       "unbind": [
-        "space", 
-        "shift-space", 
+        "space",
+        "shift-space",
         "c"
       ]
     }
-  }, 
+  },
   "load_extensions": {
-    "comment-uncomment/main": true, 
-    "collapsible_headings/main": true, 
-    "rise/main": true, 
-    "nbextensions_configurator/config_menu/main": true, 
-    "init_cell/main": true, 
-    "codefolding/main": true, 
-    "jupyter-js-widgets/extension": true, 
-    "ruler/main": true, 
-    "hide_input_all/main": false, 
-    "code_prettify/code_prettify": false
-  }, 
+    "comment-uncomment/main": true,
+    "collapsible_headings/main": true,
+    "rise/main": true,
+    "nbextensions_configurator/config_menu/main": true,
+    "init_cell/main": true,
+    "codefolding/main": true,
+    "jupyter-js-widgets/extension": true,
+    "ruler/main": true,
+    "hide_input_all/main": false,
+    "code_prettify/code_prettify": false,
+    "contrib_nbextensions_help_item/main": true
+  },
   "Cell": {
     "cm_config": {
       "lineNumbers": false
     }
-  }, 
-  "codefolding_hotkey": "meta-shift-7", 
+  },
+  "codefolding_hotkey": "meta-shift-7",
   "Notebook": {
     "Toolbar": false
-  }, 
+  },
   "ruler_color": [
     "#515151"
-  ], 
+  ],
   "comment_uncomment_keybinding": "meta-shift-7"
 }
