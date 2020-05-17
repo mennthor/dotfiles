@@ -7,5 +7,5 @@
     "anaconda_linter_mark_style": "stippled_underline",
     "pep8_max_line_length": 80,
     // Don't lint matching brackets, indentation and line too long
-    "pep8_ignore": [ "E123", "E126", "E309", "E501" ]
+    "pep8_ignore": [ "E123", "E126", "E309", "E501", "W503"]
 }
