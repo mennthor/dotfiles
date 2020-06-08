@@ -1,0 +1,13 @@
+{
+	"extensions":
+	[
+		"config"
+	],
+	"file_locations":
+	{
+		"authorized_keys": "~/.ssh/authorized_keys",
+		"known_hosts": "~/.ssh/known_hosts",
+		"ssh_config": "~/.ssh/config",
+		"sshd_config": "/etc/ssh/sshd_config"
+	}
+}
