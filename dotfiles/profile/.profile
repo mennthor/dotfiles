@@ -12,11 +12,16 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
+# homebrew coreutils:
+# Commands also provided by macOS have been installed with the prefix "g".
+# If you need to use these commands with their normal names, you
+# can add a "gnubin" directory to your PATH from your bashrc like:
+# export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 ##############################################################################
 #### Environment variables
 # Add system Python user packages in ~/Library/Python/2.7 to PATH
-export PATH=${HOME}/Library/Python/2.7/bin:${PATH}
+# export PATH=${HOME}/Library/Python/2.7/bin:${PATH}
 
 # Java
 if [ /usr/libexec/java_home -F 2> /dev/null ]; then
