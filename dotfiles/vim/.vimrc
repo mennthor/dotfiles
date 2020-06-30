@@ -51,6 +51,7 @@ nnoremap Î yyp
 "" Other Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tab indentation settings: Tabs with 4 cols; Mark tabs, trail spaces and eol
+" This need a supporting font, uncomment if not available
 set list listchars=tab:▸\ ,trail:∙,eol:¬
 highlight NonText ctermfg=DarkGrey
 highlight SpecialKey ctermfg=DarkGrey
