@@ -52,8 +52,10 @@ fi
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+# ls -> colored detail, lso -> original ls, lsl -> show symlink content
 alias ls="ls -GFAh"
-alias lso="\ls -GFh"
+alias lso="\ls"
+alias lsl="ls -Hl"
 alias vp="vimpager"
 alias cpwd="pwd | pbcopy"
 alias notebook="jupyter-notebook"

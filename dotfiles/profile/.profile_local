@@ -81,6 +81,11 @@
   # export ICPROPOSAL="$ICSOFTWARE/PROPOSAL"
 
 
+## AEI CW software
+export CW_PREFIX=${HOME}/cw-software
+alias cwon="source $CW_PREFIX/activate-everything; source $CW_PREFIX/activate-prompt.bash"
+
+
 ## Alias
   alias quickhighlight="pbpaste | highlight --syntax=python -O rtf"
   alias nb2html="jupyter nbconvert --to html --template full"
