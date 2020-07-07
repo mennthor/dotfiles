@@ -3,6 +3,11 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorscheme
 " colorscheme smyck
+" From: https://github.com/arcticicestudio/nord-vim
+" $ mkdir -p ~/.vim/colors && cd ~/.vim
+" $ git clone https://github.com/arcticicestudio/nord-vim.git
+" $ cp nord-vim/colors/nord.vim colors/
+colorscheme nord
 
 " 256 colors for solarized
 " let g:solarized_termcolors=256
@@ -87,3 +92,4 @@ function! StripWhitespace()
         call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
+
