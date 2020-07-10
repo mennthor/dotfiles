@@ -52,11 +52,12 @@ fi
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-# ls -> colored detail, lso -> original ls, lsl -> show symlink content
+# ls -> colored detail, ll -> ls with long output, follow symlinks
+# lso -> original ls but with color and human sizes, lsol -> ll but with lso
 alias ls="ls -GFAh"
-alias lso="\ls"
-alias lsl="ls -Hl"
-alias vp="vimpager"
+alias ll="ls -Hl"
+alias lso="\ls -Gh"
+alias lsol="\ls -GhHl"
 alias cpwd="pwd | pbcopy"
 alias notebook="jupyter-notebook"
 alias bing="${HOME}/Google\ Drive/osx/scripts/Bing_Wallpapers/bing_wallpaper.sh"
