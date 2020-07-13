@@ -25,14 +25,14 @@ fi
 
 # Java
 if [ /usr/libexec/java_home -F 2> /dev/null ]; then
-  export JAVA_HOME=$(/usr/libexec/java_home)
+    export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
 # Init pyenv python version manager: https://github.com/pyenv/pyenv#installation
 export PYENV_ROOT=${HOME}/.pyenv
 export PATH=${PYENV_ROOT}/bin:${PATH}
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+    eval "$(pyenv init -)"
 fi
 if which pyenv-virtualenv-init > /dev/null; then
     eval "$(pyenv virtualenv-init -)";
@@ -45,6 +45,65 @@ fi
 if [ -f ${HOME}/.profile_local ]; then
   source ${HOME}/.profile_local
 fi
+
+
+##############################################################################
+#### NAS remote access. $NAS* non-versioned in .nasinfo
+source ~/.nasinfo
+alias wakenas="wakeonlan -i $NASADDR -p $NASPORT $NASMAC"
+alias shutdownnas="ssh -t nasremote sudo shutdown -h now"
+function nasreachable {
+HELP="Usage:
+  nasreachable -t=<TIMEOUT> <METHOD>
+
+Uses 'netcat' or 'ssh' (specifiy with <METHOD>, default 'ssh') to test if a
+server is available over port 22.
+Use <TIMEOUT> (in seconds, default 5) to specify how long to try the connection.
+"
+  for i in "$@"
+  do
+    case $i in
+      -h|--help)
+        echo "$HELP"
+        return 0
+        ;;
+      -t=*)
+        TIMEOUT="${i#*=}"  # '#': Pattern substitution
+        shift
+        ;;
+    esac
+  done
+
+  METHOD="${1:-ssh}"
+  TIMEOUT=${TIMEOUT:-5}  # :- Default if par is ""
+
+  echo "Options:"
+  echo "  Method  : $METHOD"
+  echo "  Timeout : $TIMEOUT"
+
+  case "$METHOD" in
+    ssh)
+      # stackoverflow.com/questions/35741323
+      ssh -o BatchMode=yes -o ConnectTimeout=$TIMEOUT \
+          -o PubkeyAuthentication=no -o PasswordAuthentication=no \
+          -o KbdInteractiveAuthentication=no \
+          -o ChallengeResponseAuthentication=no $NASADDR
+      ;;
+    nc)
+      # -z: just scan for listening daemons, without sending any data to them
+      nc -z -w $TIMEOUT $NASADDR 22  # On ssh port
+      if [ $? == 0 ]; then
+          echo "Return code 0, ssh server online."
+      else
+          echo "Return code 1, no response from ssh server."
+      fi
+      ;;
+    *)
+      echo "<METHOD> must be one of 'ssh', 'nc'. Exiting."
+      return 1;
+      ;;
+  esac
+}
 
 
 ##############################################################################
@@ -67,6 +126,8 @@ alias gitsall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && c
 alias gitpall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git pull && echo)' \;"
 
 
+##############################################################################
+#### Functions
 function subldiff {
 HELP="Usage:
   subldiff <LEFT_FILE> <RIGHT_FILE>
