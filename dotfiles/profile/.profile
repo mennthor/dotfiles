@@ -113,10 +113,10 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 # ls -> colored detail, ll -> ls with long output, follow symlinks
 # lso -> original ls but with color and human sizes, lsol -> ll but with lso
-alias ls="ls -GFAh"
+alias ls="ls -GFh"
+alias la="ls -A"
 alias ll="ls -Hl"
-alias lso="\ls -Gh"
-alias lsol="\ls -GhHl"
+alias lla="la -Hl"
 alias cpwd="pwd | pbcopy"
 alias notebook="jupyter-notebook"
 alias brewup="brew update && brew upgrade && brew cask upgrade && brew cask cleanup"
