@@ -111,8 +111,6 @@ Use <TIMEOUT> (in seconds, default 5) to specify how long to try the connection.
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-# ls -> colored detail, ll -> ls with long output, follow symlinks
-# lso -> original ls but with color and human sizes, lsol -> ll but with lso
 alias ls="ls -GFh"
 alias la="ls -A"
 alias ll="ls -Hl"
