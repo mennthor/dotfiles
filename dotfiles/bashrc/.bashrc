@@ -14,8 +14,10 @@ fi
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias ls="ls -GFAh"
-alias lso="\ls -GFh"
+alias ls="ls -GFh"
+alias la="ls -A"
+alias ll="ls -Hl"
+alias lla="la -Hl"
 alias gdiff="git diff --no-index"
 # From https://coderwall.com/p/grmruq/git-status-on-all-repos-in-folder
 alias gitsall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
