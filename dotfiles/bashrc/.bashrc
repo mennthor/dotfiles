@@ -14,7 +14,7 @@ fi
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias ls="ls -GFh"
+alias ls="ls -Fh --color=auto"
 alias la="ls -A"
 alias ll="ls -Hl"
 alias lla="la -Hl"
