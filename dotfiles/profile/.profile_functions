@@ -1,0 +1,210 @@
+function nasreachable {
+HELP="Usage:
+  nasreachable -t=<TIMEOUT> <METHOD>
+
+Uses 'netcat' or 'ssh' (specifiy with <METHOD>, default 'ssh') to test if a
+server is available over port 22.
+Use <TIMEOUT> (in seconds, default 5) to specify how long to try the connection.
+"
+  for i in "$@"
+  do
+    case $i in
+      -h|--help)
+        echo "$HELP"
+        return 0
+        ;;
+      -t=*)
+        TIMEOUT="${i#*=}"  # '#': Pattern substitution
+        shift
+        ;;
+    esac
+  done
+
+  METHOD="${1:-ssh}"
+  TIMEOUT=${TIMEOUT:-5}  # :- Default if par is ""
+
+  echo "Options:"
+  echo "  Method  : $METHOD"
+  echo "  Timeout : $TIMEOUT"
+
+  case "$METHOD" in
+    ssh)
+      # stackoverflow.com/questions/35741323
+      ssh -o BatchMode=yes -o ConnectTimeout=$TIMEOUT \
+          -o PubkeyAuthentication=no -o PasswordAuthentication=no \
+          -o KbdInteractiveAuthentication=no \
+          -o ChallengeResponseAuthentication=no $NASADDR
+      ;;
+    nc)
+      # -z: just scan for listening daemons, without sending any data to them
+      nc -z -w $TIMEOUT $NASADDR 22  # On ssh port
+      if [ $? == 0 ]; then
+          echo "Return code 0, ssh server online."
+      else
+          echo "Return code 1, no response from ssh server."
+      fi
+      ;;
+    *)
+      echo "<METHOD> must be one of 'ssh', 'nc'. Exiting."
+      return 1;
+      ;;
+  esac
+}
+
+
+function subldiff {
+HELP="Usage:
+  subldiff <LEFT_FILE> <RIGHT_FILE>
+
+Uses subldiff plugin to diff two files in a Sublime Text view.
+"
+  for i in "$@"
+  do
+    case $i in
+      -h|--help)
+        echo "$HELP"
+        return 0
+        ;;
+    esac
+  done
+
+  if [ "$#" -ne 2 ]; then  # $# = Number of args
+    echo "Need 2 parameters: <LEFT_FILE> <RIGHT_FILE>"
+    echo ""
+    echo "$HELP"
+    return 0
+  fi
+
+  # From: https://www.sublimerge.com/sm3/docs/vcs-integration.html
+  echo "Comparing file $1 on the left and $2 on the right."
+  subl -n --wait "$1" "$2" --command 'sublimerge_diff_views'
+}
+
+
+function tunnel {
+HELP="Usage:
+  tunnel [-p=<port>, 2222] <ssh_host>
+
+Open an interactive ssh tunnel to <ssh_host> on <port>.
+"
+  PORT=""
+  for i in "$@"
+  do
+    case $i in
+      -h|--help)
+        echo "$HELP"
+        return 0
+        ;;
+      -p=*)
+        PORT="${i#*=}"  # '#': Pattern substitution
+        shift
+        ;;
+    esac
+  done
+
+  if [ -z $1 ]; then
+    echo "Error: <ssh_host> must be specified as the last non-opt argument!"
+    echo ""
+    echo "$HELP"
+    return 0
+  fi
+
+  HOST="$1"
+  PORT=${PORT:-2222}  # :- Default if par is ""
+
+  echo "Options:"
+  echo "  Host : $HOST"
+  echo "  Port : $PORT"
+
+  ssh -t -L $PORT:localhost:$PORT "$HOST"
+}
+
+
+function mntsshfs {
+HELP="Usage:
+  mntsshfs [-h,--help] [-m=<mount_point>] <host>[:<remote_path>]
+
+Mounts a remote file system path <remote_path> on <host> to a local <mount_point> via sshfs.
+
+Arguments
+---------
+<host>         The ssh hostname.
+<remote_path>  Path on the host machine (default: '~').
+-m             The local mount point (default: '~/sshfs/<host>_basename(remote_path)').
+               The folder is created if it doesn't exist.
+-h,--help      Shows this help.
+"
+  # Parsing: stackoverflow.com/questions/192249
+  REM_DIR=""
+  MNT_DIR=""
+  for i in "$@"
+  do
+    case $i in
+      -h|--help)
+        echo "$HELP"
+        return 0
+        ;;
+      -m=*)
+        MNT_DIR="${i#*=}"
+        shift
+        ;;
+    esac
+  done
+
+  if [ -z $1 ]; then
+    echo "Error: <ssh_host> must be specified as the last non-opt argument!"
+    echo ""
+    echo "$HELP"
+    return 0
+  fi
+  # Split host:path argument
+  HOST=`echo $1 | cut -d ":" -f1`
+  REM_DIR=`echo $1 | cut -s -d ":" -f2`  # Field empty if ":" not given
+
+  # Setup sshfs volume name and local mount dir (hostname_remoteBasename)
+  _REM_BASE=$(basename "$REM_DIR")
+  VOLNAME=${HOST}_${_REM_BASE}
+  MNT_DIR=${MNT_DIR:-${HOME}/sshfs/${VOLNAME}}
+  if [ -d "$MNT_DIR" ]; then
+    read -p "$MNT_DIR already exists, still continue (yes/no)? " CHOICE
+    case "$CHOICE" in
+      yes)
+        _CREATED_DIR=false
+        ;;
+      no)
+        echo "Exiting."
+        return 1;
+        ;;
+      *)
+        echo "Type (yes|no). Exiting."
+        return 1;
+        ;;
+    esac
+  else
+    mkdir -p "$MNT_DIR"
+    _CREATED_DIR=true
+  fi
+
+  # Get remote home path for default param
+  REM_HOME=$(ssh "$HOST" 'echo $HOME' 2>/dev/null)
+  REM_DIR="${REM_DIR:-"$REM_HOME"}"
+
+  _OPTS="auto_cache,reconnect,defer_permissions,noappledouble"
+  if (! sshfs "$HOST":"$REM_DIR" "$MNT_DIR" -o volname="$VOLNAME",$_OPTS ); then
+    # Unroll if sshfs returned unsuccessful
+    if [ $_CREATED_DIR = true ]; then rm -r "$MNT_DIR"; fi
+    echo "Error mounting remote dir, exiting..."
+    return 1
+  fi
+
+  echo "Mount options:"
+  echo "  Remote dir : $REM_DIR"
+  if [ "$_CREATED_DIR" = true ]; then
+    echo "  Mount dir  : $MNT_DIR (created)"
+  else
+    echo "  Mount dir  : $MNT_DIR (existing)"
+  fi
+  echo "  Host       : $HOST"
+  echo "  Volname    : $VOLNAME"
+  echo "Unmount with 'umount $MNT_DIR'"
+}
