@@ -1,14 +1,69 @@
-_known_hosts()
+_tunnel()
 {
-    local cur prev opts
+    # Copied from _rsync to see how host:path completion is done
+    # This should do the same as the manual version above, but uses the
+    # already existing _known_hosts_real too parse known_hosts
+
     COMPREPLY=()
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
-    opts=$(grep '^Host' ~/.ssh/config | grep -v '[?*]' | cut -d ' ' -f 2-)
+    local cur prev  # opts  # Use for the manual version in case '*'
+    _get_comp_words_by_ref -n : cur prev
+    # Manual version:
+    # cur="${COMP_WORDS[COMP_CWORD]}"
+    # prev="${COMP_WORDS[COMP_CWORD-1]}"
 
-    COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
+    _expand || return 0
+
+    case $cur in
+        -)
+            COMPREPLY=( $(compgen -W "-p= -h" -- ${cur}) )
+            return 0
+            ;;
+        -p)
+            COMPREPLY=( $(compgen -W "-p=" -- ${cur}) )
+            ;;
+        *)
+            _known_hosts_real -c -a "$cur"
+            # Manually parsed ssh config version:
+            # opts=$(grep '^Host' ~/.ssh/config | grep -v '[?*]' | cut -d ' ' -f 2-)
+            # COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
+            ;;
+    esac
+
     return 0
-}
+} &&
+complete -F _tunnel -o nospace tunnel
 
-complete -F _known_hosts tunnel
-complete -F _known_hosts mntsshfs
+
+_mntsshfs()
+{
+    # Copied from _rsync to see how host:path completion is done
+
+    COMPREPLY=()
+    local cur prev
+    _get_comp_words_by_ref -n : cur prev
+
+    _expand || return 0
+
+    case $cur in
+        *:*)
+            if type _scp_remote_files &>/dev/null; then
+                # find which remote shell is used
+                local i shell=ssh
+                for (( i=1; i < COMP_CWORD; i++ )); do
+                    if [[ "${COMP_WORDS[i]}" == -@(e|-rsh) ]]; then
+                        shell=${COMP_WORDS[i+1]}
+                        break
+                    fi
+                done
+                [ "$shell" = ssh ] && _scp_remote_files
+            fi
+            ;;
+        *)
+            _known_hosts_real -c -a "$cur"
+            type _scp_local_files &>/dev/null && _scp_local_files || _filedir
+            ;;
+    esac
+
+    return 0
+} &&
+complete -F _mntsshfs -o nospace mntsshfs
