@@ -45,6 +45,13 @@ _mntsshfs()
     _expand || return 0
 
     case $cur in
+        -)
+            COMPREPLY=( $(compgen -W "-m= -h -n" -- ${cur}) )
+            return 0
+            ;;
+        -m)
+            COMPREPLY=( $(compgen -W "-m=" -- ${cur}) )
+            ;;
         *:*)
             if type _scp_remote_files &>/dev/null; then
                 # find which remote shell is used

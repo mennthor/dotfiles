@@ -132,11 +132,13 @@ Arguments
 <remote_path>  Path on the host machine (default: '~').
 -m             The local mount point (default: '~/sshfs/<host>_basename(remote_path)').
                The folder is created if it doesn't exist.
+-n             Dry run, don't modifies anything.
 -h,--help      Shows this help.
 "
   # Parsing: stackoverflow.com/questions/192249
   REM_DIR=""
   MNT_DIR=""
+  DRY_RUN=false
   for i in "$@"
   do
     case $i in
@@ -146,6 +148,10 @@ Arguments
         ;;
       -m=*)
         MNT_DIR="${i#*=}"
+        shift
+        ;;
+      -n)
+        DRY_RUN=true
         shift
         ;;
     esac
@@ -164,47 +170,59 @@ Arguments
   # Setup sshfs volume name and local mount dir (hostname_remoteBasename)
   _REM_BASE=$(basename "$REM_DIR")
   VOLNAME=${HOST}_${_REM_BASE}
-  MNT_DIR=${MNT_DIR:-${HOME}/sshfs/${VOLNAME}}
-  if [ -d "$MNT_DIR" ]; then
-    read -p "$MNT_DIR already exists, still continue (yes/no)? " CHOICE
-    case "$CHOICE" in
-      yes)
-        _CREATED_DIR=false
-        ;;
-      no)
-        echo "Exiting."
-        return 1;
-        ;;
-      *)
-        echo "Type (yes|no). Exiting."
-        return 1;
-        ;;
-    esac
-  else
-    mkdir -p "$MNT_DIR"
-    _CREATED_DIR=true
+  _MNT_DEFAULT_ROOT="${HOME}/sshfs"
+  MNT_DIR=${MNT_DIR:-${_MNT_DEFAULT_ROOT}/${VOLNAME}}
+  if [ $DRY_RUN = false ]; then
+    if [ -d "$MNT_DIR" ]; then
+      read -p "$MNT_DIR already exists, still continue (yes/no)? " CHOICE
+      case "$CHOICE" in
+        yes)
+          _CREATED_DIR=false
+          ;;
+        no)
+          echo "Exiting."
+          return 1;
+          ;;
+        *)
+          echo "Type (yes|no). Exiting."
+          return 1;
+          ;;
+      esac
+    else
+      mkdir -p "$MNT_DIR"
+      _CREATED_DIR=true
+    fi
   fi
 
   # Get remote home path for default param
   REM_HOME=$(ssh "$HOST" 'echo $HOME' 2>/dev/null)
   REM_DIR="${REM_DIR:-"$REM_HOME"}"
 
-  _OPTS="auto_cache,reconnect,defer_permissions,noappledouble"
-  if (! sshfs "$HOST":"$REM_DIR" "$MNT_DIR" -o volname="$VOLNAME",$_OPTS ); then
-    # Unroll if sshfs returned unsuccessful
-    if [ $_CREATED_DIR = true ]; then rm -r "$MNT_DIR"; fi
-    echo "Error mounting remote dir, exiting..."
-    return 1
+  if [ $DRY_RUN = false ]; then
+    # local: https://github.com/osxfuse/osxfuse/issues/384
+    _OPTS="auto_cache,reconnect,defer_permissions,local,noappledouble"
+    if (! sshfs "$HOST":"$REM_DIR" "$MNT_DIR" -o volname="$VOLNAME",$_OPTS ); then
+      # Unroll if sshfs returned unsuccessful
+      if [ $_CREATED_DIR = true ]; then rm -r "$MNT_DIR"; fi
+      echo "Error mounting remote dir, exiting..."
+      return 1
+    fi
   fi
 
-  echo "Mount options:"
+  if [ $DRY_RUN = true ]; then
+    echo "Dry run, mount options would be:"
+  else
+    echo "Mounted with options:"
+  fi
+  echo "  Host       : $HOST"
   echo "  Remote dir : $REM_DIR"
   if [ "$_CREATED_DIR" = true ]; then
     echo "  Mount dir  : $MNT_DIR (created)"
   else
     echo "  Mount dir  : $MNT_DIR (existing)"
   fi
-  echo "  Host       : $HOST"
   echo "  Volname    : $VOLNAME"
-  echo "Unmount with 'umount $MNT_DIR'"
+  if [ $DRY_RUN = false ]; then
+    echo "Unmount with 'umount $MNT_DIR'"
+  fi
 }
