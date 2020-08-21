@@ -34,7 +34,7 @@
   },
   "Cell": {
     "cm_config": {
-      "lineNumbers": false
+      "lineNumbers": true
     }
   },
   "codefolding_hotkey": "meta-shift-7",
@@ -44,5 +44,6 @@
   "ruler_color": [
     "#515151"
   ],
-  "comment_uncomment_indent": true
+  "comment_uncomment_indent": true,
+  "comment_uncomment_keybinding": "meta-shift-c"
 }
