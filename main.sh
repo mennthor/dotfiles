@@ -69,6 +69,8 @@ git clone https://github.com/LaTeXing/LaTeX-cwl.git "$TARGET"/LaTeX-cwl
 
 echo "-----------------------------------------------------------------------"
 echo ":: Setting up tmux ::"
+# Note: https://github.com/arcticicestudio/nord-terminal-app is needed and a
+# powerline font to look good (Hack from brew)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source .tmux.conf
 
