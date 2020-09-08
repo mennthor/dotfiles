@@ -91,3 +91,6 @@ alias cwon="source $CW_PREFIX/activate-everything; source $CW_PREFIX/activate-pr
   alias nb2html="jupyter nbconvert --to html --template full"
 # Exit ranger to current dir
   # alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+
+alias wakenas='wakeonlan 00:26:18:0f:68:de'
+
