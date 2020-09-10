@@ -4,9 +4,10 @@
 " Colorscheme
 " colorscheme smyck
 " From: https://github.com/arcticicestudio/nord-vim
-" $ mkdir -p ~/.vim/colors && cd ~/.vim
-" $ git clone https://github.com/arcticicestudio/nord-vim.git
-" $ cp nord-vim/colors/nord.vim colors/
+" $ mkdir -p ~/.vim/colors
+" $ git clone https://github.com/arcticicestudio/nord-vim.git ~/.vim/nord-vim
+" $ cp ~/.vim/nord-vim/colors/nord.vim ~/.vim/colors/
+" $ rm -r ~/.vim/nord-vim
 colorscheme nord
 
 " 256 colors for solarized
