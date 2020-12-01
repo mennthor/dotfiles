@@ -59,6 +59,9 @@ alias cpwd="pwd | pbcopy"
 alias notebook="jupyter-notebook"
 alias brewup="brew update && brew upgrade && brew cask upgrade && brew cask cleanup"
 alias gdiff="git diff --no-index"
+# Use vim as a pager. Note: Maybe not a very robust way to guess the path...
+# See also: https://ubuntu-tutorials.com/2008/07/14/use-vim-as-a-syntax-highlighting-pager/
+alias vless=$(find /usr/share/vim -type d -regex ".*vim[0-9][0-9]" | tail -n 1)"/macros/less.sh"
 # From https://coderwall.com/p/grmruq/git-status-on-all-repos-in-folder
 alias gitsall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
 alias gitpall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git pull && echo)' \;"
