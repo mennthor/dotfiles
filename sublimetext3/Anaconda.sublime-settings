@@ -1,6 +1,7 @@
 {
     // Set python paths
-    "python_interpreter" : "/usr/bin/python",
+    "python_interpreter" : "/Users/tmenne/.pyenv/shims/python",
+    // "python_interpreter" : "/usr/bin/python",
     // "python_interpreter" : "/usr/local/bin/python3",
     "anaconda_linting_behaviour": "load-save",
     "anaconda_linter_delay": 1,
