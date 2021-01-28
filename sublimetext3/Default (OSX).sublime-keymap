@@ -28,6 +28,15 @@
     // Fix tab cycling: https://goo.gl/Qn3g25
     { "keys": ["ctrl+tab"], "command": "next_view" },
     { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+    // Toogle Anaconda Plugin Linter. stackoverflow.com/questions/28651352
+    {
+        "keys": ["ctrl+shift+l"],
+        "command": "anaconda_enable_linting"
+    },
+    {
+        "keys": ["ctrl+alt+l"],
+        "command": "anaconda_disable_linting"
+    },
     // Switch dicts: https://forum.sublimetext.com/t/hotkeys-for-quick-switch-between-spell-checking-languages/21733/3
     {
         "keys": ["ctrl+s", "e"],
