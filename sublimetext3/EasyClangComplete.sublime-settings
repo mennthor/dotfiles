@@ -1,4 +1,5 @@
 {
+  // See also: https://niosus.github.io/EasyClangComplete/settings/
   // SETTINGS FOR EASY_CLANG_COMPLETE.
 
   // Every path variable in settings can contain wildcards (without the ""):
@@ -14,17 +15,32 @@
 
   // Specify common flags that will be passed to clang for EVERY build.
   "common_flags" : [
-    // this is needed to include the correct headers for clang
-    "-I/usr/lib/clang/$clang_version/include",
-    "-I/Users/tmenne/Library/Python/2.7/include/python2.7",
-    "-I/Users/tmenne/.pyenv/versions/3.6.1/include/python3.6m",
-    // Defaults
-    "-I/usr/include/c++/4.2.1",
     // some example includes
     "-I/usr/include",
-    "-I/usr/local/lib",
-    "-I$project_base_path/src"
+    "-I$project_base_path/src",
+    // this is needed to include the correct headers for clang
+    // "-I/usr/lib/clang/$clang_version/include",
+    // On OSX. Use `c++ -x c++ -v -E -dM /dev/null | grep include` to find dirs
+    "-I/Library/Developer/CommandLineTools/usr/include/c++/v1",
+    "-I/Library/Developer/CommandLineTools/usr/include/c++/v1",
+    // For simple projects, you can add a folder where your current file is
+    "-I$file_path",
+    // Pull in Python headers (pyenv and system, maybe not at the same time?)
+    // Use `python -m pybind11` to get both header locations
+    "-I/Users/tmenne/.pyenv/versions/3.8.5/Python.framework/Versions/3.8/include/python3.8",
+    "-I/Users/tmenne/.pyenv/versions/3.8.5/Python.framework/Versions/3.8/lib/python3.8/site-packages/pybind11/include"
+    // "-I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7",
   ],
+
+  // Language-specific flags. Prepend common_flags for files of given language.
+  // When adapting to your needs, make sure to keep all language keys.
+  "lang_flags": {
+    "C": ["-std=c11"],
+    "CPP": ["-std=c++17"],
+    "OBJECTIVE_C": ["-std=c11"],
+    "OBJECTIVE_CPP": ["-std=c++11"],
+  },
+
   // Use libclang.
   // If set to false will use clang_binary and parse the output of
   // `clang_binary -Xclang -code-complete-at...` instead.
