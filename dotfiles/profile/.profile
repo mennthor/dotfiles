@@ -55,6 +55,7 @@ alias ls="ls -GFh"
 alias la="ls -A"
 alias ll="ls -Hl"
 alias lla="la -Hl"
+alias grep="grep --colour"
 alias cpwd="pwd | pbcopy"
 alias notebook="jupyter-notebook"
 alias brewup="brew update && brew upgrade && brew cask upgrade && brew cask cleanup"
@@ -65,6 +66,8 @@ alias vless=$(find /usr/share/vim -type d -regex ".*vim[0-9][0-9]" | tail -n 1)"
 # From https://coderwall.com/p/grmruq/git-status-on-all-repos-in-folder
 alias gitsall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
 alias gitpall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git pull && echo)' \;"
+# Add all ssh private keys (keys starting with 'id' and not ending with '.pub') to the agent
+alias sshaddall="ls -1 ~/.ssh/id* | ggrep -P 'id_(?!.*[.]pub$).*' | xargs ssh-add -K"
 
 
 ##############################################################################
