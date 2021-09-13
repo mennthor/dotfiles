@@ -24,23 +24,23 @@
 	[
 		{
 			"characters": ".>:",
-			"selector": "source.c++ - string - comment - constant.numeric"
+			"selector": "source.c++ - string - comment - constant.numeric",
 		},
 		{
 			"characters": ".>:",
-			"selector": "source.c - string - comment - constant.numeric"
+			"selector": "source.c - string - comment - constant.numeric",
 		},
 		{
 			"characters": ".>: ",
-			"selector": "source.objc++ - string - comment - constant.numeric"
+			"selector": "source.objc++ - string - comment - constant.numeric",
 		},
 		{
 			"characters": ".>: ",
-			"selector": "source.objc - string - comment - constant.numeric"
+			"selector": "source.objc - string - comment - constant.numeric",
 		},
 		{
 			"characters": "\\",
-			"selector": "text.tex.latex"
+			"selector": "text.tex.latex",
 		}
 	],
 	"color_scheme": "Packages/User/Nord/Nord.tmTheme",
@@ -55,7 +55,8 @@
 	"ignored_packages":
 	[
 		"Markdown",
-		"Vintage"
+		"Rust",
+		"Vintage",
 	],
 	"indent_guide_options":
 	[
@@ -76,5 +77,5 @@
 	"translate_tabs_to_spaces": false,
 	"trim_trailing_white_space_on_save": true,
 	"update_check": false,
-	"wrap_width": 80
+	"wrap_width": 80,
 }

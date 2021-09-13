@@ -13,16 +13,17 @@
 		"EasyClangComplete",
 		"GitGutter",
 		"Greek Letters",
+		"HexViewer",
 		"INI",
 		"LaTeX-cwl",
 		"LaTeXTools",
 		"MarkdownEditing",
 		"MarkdownLivePreview",
 		"Package Control",
+		"Rust Enhanced",
 		"SSH Config",
-		"SublimeCodeIntel",
 		"Sublimerge 3",
 		"Text Pastry",
-		"WordCount"
-	]
+		"WordCount",
+	],
 }
