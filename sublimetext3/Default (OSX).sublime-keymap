@@ -29,6 +29,8 @@
     { "keys": ["ctrl+tab"], "command": "next_view" },
     { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
     // Toogle Anaconda Plugin Linter. stackoverflow.com/questions/28651352
+    // and https://forum.sublimetext.com/t/keybinding-draw-white-space-toggle/5122/8
+    // { "keys": ["ctrl+alt+l"], "command": "toggle_setting", "args": {"setting": "anaconda_linting"} },
     {
         "keys": ["ctrl+shift+l"],
         "command": "anaconda_enable_linting"
