@@ -1,0 +1,6 @@
+{
+	"group_bytes_by_bits" : 8,
+	 "bytes_per_line" : 8,
+	 "use_lowercase_hex": false,
+	 "custom_font_size" : 16
+}
