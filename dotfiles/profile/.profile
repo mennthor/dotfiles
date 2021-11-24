@@ -7,6 +7,15 @@ export PS1="\u:\[\e[34m\]\W\[\e[0m\]\\$ "
 # Editor
 export EDITOR="vim"
 
+# Fix weird update_terminal_cwd not found (/etc/bashrc_Apple_Terminal)
+# https://www.wisdomandwonder.com/emacs/10789
+# Note: This may have come from the `fig` integration, which is now removed
+# if [ -z "$(type -t update_terminal_cwd)" ] || [ "$(type -t update_terminal_cwd)" != "function" ]; then
+#     update_terminal_cwd() {
+#         true  # Just set a dummy here
+#     }
+# fi
+
 # Bash completion from homebrew
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
@@ -31,6 +40,7 @@ fi
 # Init pyenv python version manager: https://github.com/pyenv/pyenv#installation
 export PYENV_ROOT=${HOME}/.pyenv
 export PATH=${PYENV_ROOT}/bin:${PATH}
+export PATH=${PYENV_ROOT}/shims:${PATH}
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
 fi
@@ -39,6 +49,8 @@ if which pyenv-virtualenv-init > /dev/null; then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=0  # Still show venv in PS1
 fi
 
+# Rust cargo bin dir
+export PATH=${PATH}:${HOME}/.cargo/bin
 
 ##############################################################################
 #### Load local extras
@@ -68,10 +80,14 @@ alias gitsall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && c
 alias gitpall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git pull && echo)' \;"
 # Add all ssh private keys (keys starting with 'id' and not ending with '.pub') to the agent
 alias sshaddall="ls -1 ~/.ssh/id* | ggrep -P 'id_(?!.*[.]pub$).*' | xargs ssh-add -K"
-
+# Get 4 byte number from /dev/urandom
+alias getrnd4="od -An -N 4 -tu4 /dev/urandom"
 
 ##############################################################################
 #### Load functions
 if [ -f ${HOME}/.profile_functions ]; then
   source ${HOME}/.profile_functions
 fi
+
+
+

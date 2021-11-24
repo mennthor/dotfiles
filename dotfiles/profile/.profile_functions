@@ -169,6 +169,9 @@ Arguments
 
   # Setup sshfs volume name and local mount dir (hostname_remoteBasename)
   _REM_BASE=$(basename "$REM_DIR")
+  if [ "$_REM_BASE" = "/" ]; then
+      _REM_BASE="root"  # Otherwise our foldername looks like 'HOST_/'
+  fi
   VOLNAME=${HOST}_${_REM_BASE}
   _MNT_DEFAULT_ROOT="${HOME}/sshfs"
   MNT_DIR=${MNT_DIR:-${_MNT_DEFAULT_ROOT}/${VOLNAME}}
