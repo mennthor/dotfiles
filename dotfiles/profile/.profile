@@ -2,6 +2,13 @@
 # export LANG="en_US.UTF-8"
 # export LC_ALL="en_US.UTF-8"
 
+# https://unix.stackexchange.com/questions/1288/
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
 # CLI Prefix: User:Path(blue)$ (blue: \[\e[34m\], reset: \[\e[0m\])
 export PS1="\u:\[\e[34m\]\W\[\e[0m\]\\$ "
 # Editor
@@ -9,12 +16,13 @@ export EDITOR="vim"
 
 # Fix weird update_terminal_cwd not found (/etc/bashrc_Apple_Terminal)
 # https://www.wisdomandwonder.com/emacs/10789
+# -> Summary: Not sourced when subshell opened. Solution: Define a dummy
 # Note: This may have come from the `fig` integration, which is now removed
-# if [ -z "$(type -t update_terminal_cwd)" ] || [ "$(type -t update_terminal_cwd)" != "function" ]; then
-#     update_terminal_cwd() {
-#         true  # Just set a dummy here
-#     }
-# fi
+if [ -z "$(type -t update_terminal_cwd)" ] || [ "$(type -t update_terminal_cwd)" != "function" ]; then
+    update_terminal_cwd() {
+        true  # Just set a dummy here
+    }
+fi
 
 # Bash completion from homebrew
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -49,6 +57,10 @@ if which pyenv-virtualenv-init > /dev/null; then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=0  # Still show venv in PS1
 fi
 
+# Poetry root. Was installed with pyenv version 3.9.7. Need to set POETRY_HOME before installing.
+# Completions: poetry completions bash > $(brew --prefix)/etc/bash_completion.d/poetry.bash-completion
+export PATH=${PATH}:${HOME}/.poetry/bin
+
 # Rust cargo bin dir
 export PATH=${PATH}:${HOME}/.cargo/bin
 
@@ -82,6 +94,8 @@ alias gitpall="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && c
 alias sshaddall="ls -1 ~/.ssh/id* | ggrep -P 'id_(?!.*[.]pub$).*' | xargs ssh-add -K"
 # Get 4 byte number from /dev/urandom
 alias getrnd4="od -An -N 4 -tu4 /dev/urandom"
+# Is python a framework build? stackoverflow.com/questions/15752390
+alias py_is_fw="python -c \"import sysconfig; print('True' if sysconfig.get_config_var('PYTHONFRAMEWORK') else 'False');\""
 
 ##############################################################################
 #### Load functions
