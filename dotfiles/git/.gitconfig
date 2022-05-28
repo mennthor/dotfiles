@@ -57,6 +57,7 @@
 	spp = "!git stash; git pull; git stash pop"
 	# Thanks to ibab/dotfiles/.../.gitignore
 	lg = log --pretty=oneline --abbrev-commit --graph --decorate
+	lgf = log --pretty=oneline --abbrev-commit --graph --decorate --stat
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

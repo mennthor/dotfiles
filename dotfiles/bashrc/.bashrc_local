@@ -1,4 +1,66 @@
+# Home is now readonly, so set user dirs to /work
+export w="/work/thorben.menne"
+# https://docs.python.org/3/using/cmdline.html#envvar-PYTHONUSERBASE
+export PYTHONUSERBASE="$w/.local"
+export PATH="$PYTHONUSERBASE/bin:$PATH"
+# https://jupyter.readthedocs.io/en/latest/use/jupyter-directories.html
+export JUPYTER_CONFIG_DIR="$w/.jupyter"
+export JUPYTER_DATA_DIR="$w/.local/share/jupyter"
+export JUPYTER_RUNTIME_DIR="$w/.local/share/jupyter/runtime"
+# https://pip.pypa.io/en/stable/user_guide/#environment-variables
+export PIP_CACHE_DIR="$w/.cache"
+# https://ipython.readthedocs.io/en/stable/config/intro.html#the-ipython-directory 
+export IPYTHONDIR="$w/.ipython"
+# Reported while importing matplotlib in python
+export MPLCONFIGDIR=$w"/.config/matplotlib"
+# Reported when importing astropy. https://docs.astropy.org/en/stable/config/index.html
+export XDG_CONFIG_HOME="$w/.config"
+export XDG_CACHE_HOME="$w/.cache"
+# Rust and cargo dirs, see: https://www.rust-lang.org/tools/install
+# https://rust-lang.github.io/rustup/environment-variables.html
+# https://doc.rust-lang.org/cargo/reference/environment-variables.html
+export CARGO_HOME="$w/.cargo"
+export RUSTUP_HOME="$w/.rustup"
+export PATH="$PATH:$CARGO_HOME/bin"
+
+alias cdwork="cd $w"
+alias cdehome="cd /home/einstein/EinsteinAtHome_Runs"
+alias cdework="cd /work/einstein/EinsteinAtHome_Runs"
+alias cdh2w='cd ${PWD/home/work}'
+alias cdw2h='cd ${PWD/work/home}'
+alias cdh2l='cd ${PWD/Hi/Lo}'
+alias cdl2h='cd ${PWD/Lo/Hi}'
+alias jnbremote="jupyter-notebook --port=2222 --no-browser"
+# Using jupyterthemes package, set dark mode in jupyter notebook
+# See: https://github.com/dunovank/jupyter-themes
+# We set: -f Font Hack, -fs CodeFontSize, -T Show Toolbar, -N Show NBName,
+#         fruvboxd Theme, -nfs NotebookFontSize, -tfs TextCellFontSize,
+#         -cellw Cellwidth Screen in %, -lineh Line height, -tf TextFontMarkdown 
+alias jnb_dark="jt -t gruvboxd -T -N -f hack -fs 9 -nfs 10 -tfs 10 -cellw 95% -lineh 125 -tf droidsans"
+
+# Count files. Note: Wildcards must be quoted, eg `cf "*.tar"`
+function cf
+{
+	ls -1 $1 | wc -l
+}
+
+# Point SSH_AUTH_SOCKET to the proper location to fix ssh-add having no keys in tmux
+alias fix_ssh_auth="export SSH_AUTH_SOCK=/work/thorben.menne/.ssh/ssh-agent-$HOSTNAME-tmux"
+
 ##############################################################################
 #### cw software
-export CW_PREFIX=/software/cw/current
+_DEBIAN_VERSION=$(lsb_release --codename | awk '{print $NF}')
+# These are not so good because we can't reference which one was used
+# export CW_PREFIX=/software/cw/buster-latest
+# export CW_PREFIX=/software/cw/jessie-latest
+# Version used until 20211012
+# export CW_PREFIX=/software/cw/${_DEBIAN_VERSION}-2020-07-17
+# Version used from 20211012 (no Jessie / Buster anymore)
+export CW_PREFIX=/software/cw/release-2021-10-06
 alias cwon="source $CW_PREFIX/activate-everything; source $CW_PREFIX/activate-prompt.bash"
+alias cwon_py="source $CW_PREFIX/activate-python; source $CW_PREFIX/activate-prompt.bash"
+# The activcate scripts seem to check against the HAVE_* env vars and reinsert
+# paths if they are not present. So use `unset $(cw_check)` to clear and retry
+# I think(?)
+alias cw_check="env | grep -e "HAVE_.*=/soft" | awk -F '=' '{print $1}'"
+
