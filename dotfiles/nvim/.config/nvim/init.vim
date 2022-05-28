@@ -4,6 +4,8 @@
 call plug#begin('~/.config/nvim/plugged')
 " ... a universal set of defaults that (hopefully) everyone can agree on.
 Plug 'tpope/vim-sensible'
+" YouCompleteMe
+Plug 'ycm-core/YouCompleteMe'
 " Python autocompletion and linting
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
