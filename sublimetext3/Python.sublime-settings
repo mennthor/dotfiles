@@ -1,5 +1,6 @@
 {
 	"rulers":[80],
 	"translate_tabs_to_spaces": true,
-	"spell_check": false
+	"spell_check": false,
+	"trim_trailing_white_space_on_save": true
 }

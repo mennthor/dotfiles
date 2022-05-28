@@ -49,7 +49,7 @@
 	"draw_indent_guides": true,
 	"draw_white_space": "all",
 	"font_face": "Hack",
-	"font_size": 11,
+	"font_size": 14,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":

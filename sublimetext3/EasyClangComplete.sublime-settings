@@ -26,9 +26,9 @@
     // For simple projects, you can add a folder where your current file is
     "-I$file_path",
     // Pull in Python headers (pyenv and system, maybe not at the same time?)
-    // Use `python -m pybind11` to get both header locations
-    "-I/Users/tmenne/.pyenv/versions/3.8.5/Python.framework/Versions/3.8/include/python3.8",
-    "-I/Users/tmenne/.pyenv/versions/3.8.5/Python.framework/Versions/3.8/lib/python3.8/site-packages/pybind11/include"
+    // Use `python -m pybind11 --includes` to get both header locations
+    "-I/Users/tmenne/.pyenv/versions/3.9.7/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pybind11/include",
+    "-I/Users/tmenne/.pyenv/versions/3.9.7/Library/Frameworks/Python.framework/Versions/3.9/include/python3.9"
     // "-I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7",
   ],
 

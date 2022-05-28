@@ -7,10 +7,11 @@
 		"md"
 	],
 	// "color_scheme": "Packages/MarkdownEditing/MarkdownEditor.tmTheme",
-	"color_scheme": "MarkdownEditor-Dark.sublime-color-scheme",
+	/*"color_scheme": "MarkdownEditor-Dark.sublime-color-scheme",*/
 	// "color_scheme": "Packages/MarkdownEditing/MarkdownEditor-ArcDark.tmTheme",
 	// "color_scheme": "Packages/MarkdownEditing/MarkdownEditor-Yellow.tmTheme",
 	"line_numbers": true,
 	"draw_centered": false,
 	/*"line_numbers": true,*/
+	"color_scheme": "MarkdownEditor-Dark.sublime-color-scheme",
 }
