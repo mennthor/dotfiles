@@ -3,14 +3,15 @@
     "jupyter-js-widgets/extension": true,
     "comment-uncomment/main": true,
     "collapsible_headings/main": true,
-    "rise/main": true,
     "nbextensions_configurator/config_menu/main": true,
     "init_cell/main": true,
     "codefolding/main": true,
     "ruler/main": true,
     "hide_input_all/main": false,
     "code_prettify/code_prettify": false,
-    "contrib_nbextensions_help_item/main": true
+    "contrib_nbextensions_help_item/main": true,
+    "code_prettify/autopep8": true,
+    "toggle_all_line_numbers/main": true
   },
   "ruler_column": [
     "80"
@@ -39,11 +40,12 @@
   },
   "codefolding_hotkey": "meta-shift-7",
   "Notebook": {
-    "Toolbar": false
+    "Toolbar": true
   },
   "ruler_color": [
     "#515151"
   ],
   "comment_uncomment_indent": true,
-  "comment_uncomment_keybinding": "meta-shift-c"
+  "comment_uncomment_keybinding": "meta-shift-c",
+  "toggle_all_linenumbers_enable_hotkey": false
 }
